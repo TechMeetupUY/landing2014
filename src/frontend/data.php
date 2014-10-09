@@ -1,5 +1,22 @@
 <?php
 
+function filter_sponsor_type($sponsors, $type) {
+    return array_filter($sponsors, function ($sponsor) {
+        return $sponsor['type'] == $type;
+    });
+}
+
+function shuffle_by_type($sponsors) {
+    $green = filter_sponsor_type($sponsors, 'green');
+    $blue = filter_sponsor_type($sponsors, 'blue');
+
+    shuffle($green);
+    shuffle($blue);
+
+    return array_merge($green, $blue);
+
+}
+    
 $default_tracking = 'utm_source=tech.meetup.uy&utm_medium=web&utm_campaign=landing2014';
 
 $sponsors =  array(

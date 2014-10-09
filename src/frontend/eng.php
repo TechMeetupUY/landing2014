@@ -201,7 +201,7 @@
 	        <div class="center clearfix">
             <?php 
             $i = 1;
-            foreach ($sponsors as $sponsor):
+            foreach (shuffle_by_type($sponsors) as $sponsor):
                 if($i==1){
                     $css = 'alpha';
                 } elseif ($i == 2){
