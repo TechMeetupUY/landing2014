@@ -42,9 +42,6 @@ body{
 
 /* Tablet Portrait size to standard 960 (devices and browsers) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-  // body{
-  //   background:yellow;
-  // }
   .header-event{ 
     bottom: 30px; 
     left: 10px;
@@ -64,6 +61,16 @@ body{
       }
     }
   }
+
+  #speaker-list {
+    .speaker p {
+      font-size: 12px!important;
+    }
+
+    .speaker-info{
+      font-size:   15px!important;
+    }
+  }
 }
 
 /* All Mobile Sizes (devices and browser) */
@@ -78,7 +85,6 @@ body{
 
   .header-video{
     height: 400px;
-    background:red;
 
     img{
       height: 100%;
@@ -177,7 +183,6 @@ body{
 
   .header-video{
     height: 270px;
-    background:red;
 
     img{
       height: 100%;

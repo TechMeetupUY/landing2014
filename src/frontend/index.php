@@ -93,7 +93,56 @@
 
 
 	
+	<div class="blue-wrapper" id="speaker-list">
+	    
+	    <div class="container container-with-margins">
+	        
+	        <section class="sixteen columns speaker-list clearfix">
+	            <h1>Speakers</h1>
+	        </section>
 
+            <?php 
+            foreach ($speakers as $speaker):
+                if(!is_file('./assets/images/2014/landing/speakers/'.$speaker['picture'])){
+                	$speaker['picture'] = 'default.jpg';
+            	}
+            ?>
+
+
+            <div class="four columns speaker <?= $css ?>">
+                
+                <div class="handle twitter">
+                	<a href="https://twitter.com/<?= $speaker['twitter'];?>" target="_blank">
+                		<img src="/assets/images/2014/landing/speakers/handle_twitter.png" alt="">	
+                	</a>
+                </div>
+                <?php if ($speaker['linkedin'] != '') { ?>
+                <div class="handle linkedin">
+                	<a href="<?= $speaker['linkedin'];?>" target="_blank">
+                		<img src="/assets/images/2014/landing/speakers/handle_linkedin.png" alt="">	
+                	</a>
+                </div>
+                <?php } ?>
+                <img class="avatar" src="assets/images/2014/landing/speakers/<?= $speaker['picture'];?>">
+                
+                <div class="speaker-info">
+                	<img src="/assets/images/2014/landing/speakers/flags/<?= $speaker['flag'];?>.png"><?= $speaker['name'];?>
+                	<p><?= $speaker['title'];?></p>
+                </div>
+                
+            </div>
+            <?php
+               
+            endforeach;
+            ?>
+
+        </div>
+        <br>
+    </div>
+	
+
+
+	
 	<div class="yellow-wrapper">
 		<div class="container container-with-margin" id="compra">
 		    <section class="sixteen columns compra clearfix">
