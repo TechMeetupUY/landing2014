@@ -208,7 +208,7 @@
 
 
 <?php
-include('workshops.php');
+$workshops = include('workshops.php');
 $max = count($workshops);
 $i = 0;
 do{

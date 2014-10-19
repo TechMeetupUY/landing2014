@@ -8,7 +8,7 @@
 		'reqs' => ''
 	),
 */
-$workshops = array(
+return array(
 	array(
 		'img' => 'mobile_testing.png',
 		'titulo' => 'Los nuevos desafíos en Mobile Testing',
@@ -132,4 +132,3 @@ El objetivo principal del taller es que los participantes tengan la experiencia 
 		'reqs' => ''
 	),
 );
-?>
