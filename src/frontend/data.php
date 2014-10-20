@@ -64,6 +64,18 @@ $sponsors =  array(
         'type' => 'green'
     ),
     array(
+        'alt' => 'NEON ROOTS',
+        'url' => 'http://www.neonroots.com/',
+        'img' => 'neon-roots.png',
+        'type' => 'green'
+    ),
+    array(
+        'alt' => 'Rootstrap',
+        'url' => 'http://rootstrap.it/',
+        'img' => 'rootstrap.png',
+        'type' => 'green'
+    ),
+    array(
         'alt' => 'Guruhub',
         'url' => 'http://guruhub.com.uy',
         'img' => 'guruhub.png',
@@ -92,18 +104,6 @@ $sponsors =  array(
         'url' => 'http://www.pedidosya.com.uy/',
         'img' => 'pedidosya.png',
         'type' => 'blue'
-    ),
-    array(
-        'alt' => 'NEON ROOTS',
-        'url' => 'http://www.neonroots.com/',
-        'img' => 'neon-roots.png',
-        'type' => 'green'
-    ),
-    array(
-        'alt' => 'Rootstrap',
-        'url' => 'http://rootstrap.it/',
-        'img' => 'rootstrap.png',
-        'type' => 'green'
     ),
     array(
         'alt' => 'Abstracta',
