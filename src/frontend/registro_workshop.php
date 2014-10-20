@@ -1,21 +1,48 @@
 <?php
 
-//$result = file_get_contents(
-//    'https://www.eventbriteapi.com/v3/events/123456789/attendees/?'.http_build_query(['token' => '3BS25F7EIU2IIB4YWQWF']),
-//    false,
-//    stream_context_create(array(
-//        'http' => array(
-//            'method' => "GET",
-//            'header' => implode("\r\n", [
-//                'Content-Type: application/json',
-//                'Accept: application/json',
-//                'Authorization: Bearer 3BS25F7EIU2IIB4YWQWF'
-//            ]),
-//        )
-//    ))
-//);
-//
-//echo $result, PHP_EOL;
+function getAttendees($page = 1)
+{
+    $result = file_get_contents(
+        'https://www.eventbriteapi.com/v3/events/12222121695/attendees/?'.http_build_query([
+            'token'  => '0000000000000', // Eventbrite's API token
+            'status' => 'attending',
+            'page'   => $page
+        ]),
+        false,
+        stream_context_create(array(
+            'http' => array(
+                'method' => "GET",
+                'header' => implode("\r\n", [
+                    'Content-Type: application/json',
+                    'Accept: application/json',
+                ]),
+            )
+        ))
+    );
+
+    return json_decode($result, true)['attendees'];
+}
+
+function findAttendee($email)
+{
+    $page = 1;
+    do {
+        $result   = getAttendees($page++);
+        $profiles = array_filter($result, function ($attendee) use ($email) {
+            return $email === $attendee['profile']['email'];
+        });
+
+        echo 'Profiles: '.count($profiles), PHP_EOL;
+
+        $found = count($profiles);
+    } while (!$found && 50 === count($result));
+
+    if ($found) {
+        return current($profiles);
+    }
+
+    return null;
+}
 
 function stopWithBadRequest(array $errors = [])
 {
@@ -75,6 +102,8 @@ call_user_func(function (array $request) {
     if (count($errors)) {
         stopWithBadRequest($errors);
     }
+
+    # @TODO: Verificar que el email exista en eventbrite
 
     # Pronto para guardar el registro en la base de datos
 
