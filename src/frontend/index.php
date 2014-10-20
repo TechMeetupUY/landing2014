@@ -229,14 +229,16 @@ do{
 							<p>
 								<?= nl2br($workshops[$i]['descripcion']); ?>
 							</p>
+							<?php if($workshops[$i]['reqs']!==''){ ?>
 							<p><strong>Requisitos</strong></p>
 							<p>
 								<?=$workshops[$i]['reqs']?>
 							</p>
+							<?php } ?>
 							<ul class="inline unstyled">
 								<li><i class="icon-link"></i> <?=$workshops[$i]['trainers']; ?></li>
 							</ul>
-
+							
 						</div>
 						<!-- .paragraph end -->
 
@@ -259,13 +261,16 @@ do{
 							<p>
 								<?= nl2br($workshops[$i+1]['descripcion']); ?>
 							</p>
+							<?php if($workshops[$i]['reqs']!==''){ ?>
 							<p><strong>Requisitos</strong></p>
 							<p>
 								<?=$workshops[$i+1]['reqs']?>
 							</p>
+							<?php } ?>
 							<ul class="inline unstyled">
 								<li><i class="icon-link"></i> <?=$workshops[$i+1]['trainers']; ?></li>
 							</ul>
+
 						</div>
 						<!-- .paragraph end -->
 

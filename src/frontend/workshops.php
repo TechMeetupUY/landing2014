@@ -101,7 +101,7 @@ Se asumen conocimientos generales de programación en un lenguaje como Java o Ru
 	array(
 		'img' => 'mysql.png',
 		'titulo' => 'Big Data Analytics: cálculos al estilo map-reduce en MySQL con Shard Query.',
-		'descripcion' => '',
+		'descripcion' => '... próximamente ...',
 		'trainers' => 'Agustín Gallego, <a href="http://fernandoipar.com/">Fernando Ipar</a> by <a href="http://www.meetup.com/The-Montevideo-MySQL-Meetup-Group/">Mysql Meetup</a>',
 		'reqs' => ''
 	),
