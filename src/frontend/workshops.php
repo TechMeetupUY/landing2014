@@ -93,7 +93,7 @@ Se asumen conocimientos generales de programación en un lenguaje como Java o Ru
 	array(
 		'img' => 'openstack.png',
 		'titulo' => 'OpenStack',
-		'descripcion' => 'OpenStack es el proyecto más activo de los últimos años en el mundo del Open Source. Las empresas más grandes del planeta han puesto sus ojos en eĺ. Todos los días aparecen nuevas funcionalidades y líneas de código. 
+		'descripcion' => 'OpenStack es el proyecto más activo de los últimos años en el mundo del Open Source. Las empresas más grandes del planeta han puesto sus ojos en el. Todos los días aparecen nuevas funcionalidades y líneas de código. 
 		<br>Ésta charla es una presentación de OpenStack, qué es, para que se puede usar y qué camino tomar para entrar al mundo del cloud computing basado en Open Source.',
 		'trainers' => '<a href="https://twitter.com/DiegoWoitasen">Diego Woitasen</a> by <a href="http://www.meetup.com/DevOps-MVD/">DevOps Meetup</a>',
 		'reqs' => '',
