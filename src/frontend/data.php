@@ -16,7 +16,7 @@ $sponsors =  array(
         'type' => 'green'
     ),
     array(
-        'alt' => 'Mercaro Libre',
+        'alt' => 'Mercado Libre',
         'url' => 'http://www.mercadolibre.com.uy',
         'img' => 'mercadolibre.png',
         'type' => 'green'
@@ -301,6 +301,14 @@ $speakers =  array(
         'picture'   => 'luisvinay.jpg',
         'twitter'   => '',
         'linkedin'  => 'https://www.linkedin.com/in/luisvinay',
+     ),
+     array(
+        'flag'      => 'uy',
+        'name'      => 'Gabriel Ledesma',
+        'title'     => '',
+        'picture'   => 'gabrielledesma.jpeg',
+        'twitter'   => 'galafed',
+        'linkedin'  => 'http://uy.linkedin.com/in/gabrielledesma',
      ),
      array(
         'flag'      => '',
