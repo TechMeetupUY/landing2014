@@ -22,9 +22,37 @@ var tm = function($){
 			});
 		},
 
-		initialize : function(){
+        bindWorkshopEvents: function () {
+            $('#workshop-form').submit(function () {
+                var form = $(this), messageContainer = $('.messages', this);
+
+                messageContainer.empty();
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'registro_workshop.php',
+                    data: form.serialize(),
+                    dataType: 'json'
+                }).done(function (data, textStatus, jqXHR) {
+                    messageContainer.text('¡Registro completo! Muchas gracias y te esperamos en los workshops.');
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    var result = $.parseJSON(jqXHR.responseText);
+
+                    result.errors.forEach(function (error) {
+                        messageContainer.append(
+                            $('<div></div>').addClass('error').text(error)
+                        );
+                    });
+                });
+
+                return false;
+            });
+        },
+
+        initialize: function () {
 			app.prepareVideo();
 			app.handleScrollTo();
+            app.bindWorkshopEvents();
 		}
 	};
 
