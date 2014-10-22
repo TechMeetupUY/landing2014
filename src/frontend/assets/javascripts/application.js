@@ -23,9 +23,26 @@ var tm = function($){
 		},
 
         bindWorkshopEvents: function () {
-            $('#workshop-form').submit(function () {
-                var form = $(this), messageContainer = $('.messages', this);
+            var form = $('#workshop-form'), messageContainer = $('.messages', form);
 
+            // Handle errors when the input changes
+            $('input,select', form).on('change', function () {
+                messageContainer.empty();
+
+                $('input,select[required]', form).each(function () {
+                    var input = $(this), hasError = !input.val().trim();
+                    input.removeClass('error');
+
+                    if (hasError) {
+                        input.addClass('error');
+                    }
+                });
+
+                // Disable the submit if there are inputs with errors
+                $(':submit', form).prop("disabled", !!$('.error', form).length);
+            });
+
+            form.submit(function () {
                 messageContainer.empty();
 
                 $.ajax({
