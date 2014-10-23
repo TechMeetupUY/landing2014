@@ -83,7 +83,9 @@ call_user_func(function (array $request) {
 
     $nombre    = isset($request['nombre']) ? $request['nombre'] : '';
     $email     = isset($request['email']) ? $request['email'] : '';
-    $workshops = isset($request['workshops']) ? $request['workshops'] : [];
+    $workshops = array_filter(isset($request['workshops']) ? $request['workshops'] : [], function ($workshop) {
+        return !empty($workshop) && is_scalar($workshop);
+    });
 
     $errors = [];
 
