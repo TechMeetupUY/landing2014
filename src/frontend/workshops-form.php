@@ -1,5 +1,7 @@
 <h2>Registrate en los workshops</h2>
 
+<p>Debes ingresar tus datos y seleccionar al menos un workshop al que estés interesado asistir. ¡Los cupos son limitados!</p>
+
 <form action="#" id="workshop-form">
     <fieldset>
         <div class="sixteen columns">
