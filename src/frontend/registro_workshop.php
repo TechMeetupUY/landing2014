@@ -162,6 +162,9 @@ call_user_func(function (array $request) {
     try {
         $config = require(__DIR__.'/config.php');
 
+        if (null === findAttendee($config['eventbrite']['token'], $config['eventbrite']['event_id'], $email)) {
+            throw new LogicException('Primero debes registrarte en la conferencia para poder acceder a los workshops.');
+        }
 
         # Pronto para guardar el registro en la base de datos
 
@@ -179,6 +182,8 @@ call_user_func(function (array $request) {
             'Hubo un error con el procesamiento de los datos. Por favor, intentalo más tarde.',
             $e->getMessage()
         ]);
+    } catch (LogicException $e) {
+        stopWithBadRequest([$e->getMessage()]);
     }
 
     echo json_encode(['success' => true]);
