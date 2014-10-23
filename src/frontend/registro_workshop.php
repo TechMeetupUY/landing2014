@@ -80,6 +80,24 @@ function registerWorkshop(PDO $pdo, $nombre, $email, array $workshops)
     $insertStmt->execute();
 }
 
+/**
+ * Verifica que el usuario no se haya registrado previamente
+ *
+ * @param PDO    $pdo   La conexión PDO
+ * @param string $email El email del usuario
+ */
+function verifyExistence(PDO $pdo, $email)
+{
+    $stmt = $pdo->prepare('SELECT COUNT(1) FROM workshops WHERE email = :email');
+
+    $stmt->bindValue(':email', $email);
+    $stmt->execute();
+
+    if (!!$stmt->fetchColumn()) {
+        throw new LogicException('Solamente puedes registrarte una vez.');
+    }
+}
+
 function stopWithBadRequest(array $errors = [])
 {
     header('HTTP/1.0 400 Bad Request', null, 400);
@@ -154,6 +172,7 @@ call_user_func(function (array $request) {
             '__host'   => $dbConfig['host'],
         ]), $dbConfig['user'], $dbConfig['password']);
 
+        verifyExistence($pdo, $email);
         registerWorkshop($pdo, $nombre, $email, $workshops);
     } catch (PDOException $e) {
         stopWithBadRequest([
