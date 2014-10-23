@@ -4,13 +4,13 @@
     <fieldset>
         <div class="sixteen columns">
             <div class="five columns">
-                <label style="text-align: left;" for="">Nombre</label>
-                <input style="text-align: left;" type="text" name="nombre" required/>
+                <label style="text-align: left;" for="workshop-name">Nombre</label>
+                <input style="text-align: left;" type="text" name="nombre" id="workshop-name" required/>
             </div>
 
             <div class="five columns">
-                <label style="text-align: left;" for="">e-mail</label>
-                <input style="text-align: left;" type="email" name="email" placeholder="Dirección del registro." required/>
+                <label style="text-align: left;" for="workshop-email">e-mail</label>
+                <input style="text-align: left;" type="email" name="email" id="workshop-email" placeholder="Dirección del registro." required/>
             </div>
         </div>
     </fieldset>
@@ -24,7 +24,8 @@
 
             <?php for ($i = 1; $i <= 3; $i++): ?>
                 <div class="five columns" style="text-align: left;">
-                    <select name="workshops[]" <?= 1 === $i ? 'required="required"' : '' ?> id="workshop<?= $i ?>">
+                    <label style="text-align: left;" for="workshop-dropdown-<?= $i; ?>">Workshop</label>
+                    <select name="workshops[]" id="workshop-dropdown-<?= $i; ?>" <?= 1 === $i ? 'required="required"' : '' ?> id="workshop<?= $i ?>">
                         <option value="">---</option>
                         <?= $options; ?>
                     </select>
