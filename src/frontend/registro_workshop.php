@@ -1,10 +1,19 @@
 <?php
 
-function getAttendees($page = 1)
+/**
+ * Retorna un array de usuario registrados en el evento
+ *
+ * @param string $token   El token de acceso a la api de Eventbrite
+ * @param string $eventId El ID del evento
+ * @param int    $page    El número de página para los resultados
+ *
+ * @return array
+ */
+function getAttendees($token, $eventId, $page = 1)
 {
     $result = file_get_contents(
-        'https://www.eventbriteapi.com/v3/events/12222121695/attendees/?'.http_build_query([
-            'token'  => '0000000000000', // Eventbrite's API token
+        sprintf('https://www.eventbriteapi.com/v3/events/%d/attendees/?', $eventId).http_build_query([
+            'token'  => $token, // Eventbrite's API token
             'status' => 'attending',
             'page'   => $page
         ]),
@@ -23,16 +32,24 @@ function getAttendees($page = 1)
     return json_decode($result, true)['attendees'];
 }
 
-function findAttendee($email)
+/**
+ * Busca un usuario en la lista de `attendees` proporcionada por
+ * Eventbrite. Si el usuario no es encontrado, retorna NULL.
+ *
+ * @param string $token   El token de acceso a la api de Eventbrite
+ * @param string $eventId El ID del evento
+ * @param string $email   El email del usuario
+ *
+ * @return mixed|null
+ */
+function findAttendee($token, $eventId, $email)
 {
     $page = 1;
     do {
-        $result   = getAttendees($page++);
+        $result   = getAttendees($token, $eventId, $page++);
         $profiles = array_filter($result, function ($attendee) use ($email) {
             return $email === $attendee['profile']['email'];
         });
-
-        echo 'Profiles: '.count($profiles), PHP_EOL;
 
         $found = count($profiles);
     } while (!$found && 50 === count($result));
