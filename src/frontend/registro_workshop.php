@@ -152,10 +152,13 @@ call_user_func(function (array $request) {
 
     if (count(array_diff($workshops, $workshopKeys))) {
         # El formulario envió workshops que no existen en la configuración
-        array_push($errors, 'Los workshops son inválidos.');
+        error_log('Los workshops recibidos no son válidos: '.json_encode($workshops), E_USER_NOTICE);
+        array_push($errors, 'Los workshops son inválidos. Por favor, verifica tu selección.');
     }
 
     if (count($errors)) {
+        # Si hay errores, se invalida el registro
+        error_log('Existen errores de validacion: '.implode(' - ', $errors), E_USER_NOTICE);
         stopWithBadRequest($errors);
     }
 
@@ -178,11 +181,13 @@ call_user_func(function (array $request) {
         verifyExistence($pdo, $email);
         registerWorkshop($pdo, $nombre, $email, $workshops);
     } catch (PDOException $e) {
+        error_log($e->getMessage(), E_USER_NOTICE);
         stopWithBadRequest([
             'Hubo un error con el procesamiento de los datos. Por favor, intentalo más tarde.',
             $e->getMessage()
         ]);
     } catch (LogicException $e) {
+        error_log($e->getMessage(), E_USER_NOTICE);
         stopWithBadRequest([$e->getMessage()]);
     }
 
