@@ -122,15 +122,18 @@ call_user_func(function (array $request) {
         stopWithBadRequest($errors);
     }
 
-    # @TODO: Verificar que el email exista en eventbrite
-
-    # Pronto para guardar el registro en la base de datos
-
     try {
-        # verificar datos de conexión
-        $pdo = new PDO('mysql:dbname=techmeetup;host=127.0.0.1', 'tech', 'meetup');
+        $config = require(__DIR__.'/config.php');
 
-        # TODO: Debemos revisar que no se inscriba más de una vez?
+
+        # Pronto para guardar el registro en la base de datos
+
+        $dbConfig = $config['db'];
+
+        $pdo = new PDO(strtr('mysql:dbname=__dbname;host=__host', [
+            '__dbname' => $dbConfig['database'],
+            '__host'   => $dbConfig['host'],
+        ]), $dbConfig['user'], $dbConfig['password']);
 
         $insertStmt = $pdo->prepare('INSERT INTO workshops (nombre, email, workshops) VALUES (:nombre, :email, :workshops)');
 
