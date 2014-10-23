@@ -61,6 +61,25 @@ function findAttendee($token, $eventId, $email)
     return null;
 }
 
+/**
+ * Crea el registro del workshop para un usuario
+ *
+ * @param PDO    $pdo       La conexión PDO
+ * @param string $nombre    El nombre del usuario
+ * @param string $email     El email del usuario
+ * @param array  $workshops Los workshops a los que se registró
+ */
+function registerWorkshop(PDO $pdo, $nombre, $email, array $workshops)
+{
+    $insertStmt = $pdo->prepare('INSERT INTO workshops (nombre, email, workshops) VALUES (:nombre, :email, :workshops)');
+
+    $insertStmt->bindValue(':nombre', $nombre);
+    $insertStmt->bindValue(':email', $email);
+    $insertStmt->bindValue(':workshops', implode(', ', $workshops));
+
+    $insertStmt->execute();
+}
+
 function stopWithBadRequest(array $errors = [])
 {
     header('HTTP/1.0 400 Bad Request', null, 400);
@@ -135,13 +154,7 @@ call_user_func(function (array $request) {
             '__host'   => $dbConfig['host'],
         ]), $dbConfig['user'], $dbConfig['password']);
 
-        $insertStmt = $pdo->prepare('INSERT INTO workshops (nombre, email, workshops) VALUES (:nombre, :email, :workshops)');
-
-        $insertStmt->bindValue(':nombre', $nombre);
-        $insertStmt->bindValue(':email', $email);
-        $insertStmt->bindValue(':workshops', implode(', ', $workshops));
-
-        $insertStmt->execute();
+        registerWorkshop($pdo, $nombre, $email, $workshops);
     } catch (PDOException $e) {
         stopWithBadRequest([
             'Hubo un error con el procesamiento de los datos. Por favor, intentalo más tarde.',
