@@ -70,13 +70,13 @@ Todas estas herramientas, además de consejos y trucos aprendidos a lo largo de 
 	),
 	array(
 		'img' => 'golang.png',
-		'titulo' => 'Programación concurrente en o',
-		'descripcion' => 'Introducción a las características de GO que facilitan la escritura de programas concurrentes.
+		'titulo' => 'Programación concurrente en Go',
+		'descripcion' => 'Introducción a las características de Go que facilitan la escritura de programas concurrentes.
 
         No es un taller introductorio al lenguaje, pero cualquiera con algo de experiencia en un lenguaje imperativo estará en condiciones de seguir los ejemplos. 
         Requisitos: 
         <ul><li>Editor de texto</li>
-        <li>Instalación de o</li></ul>',
+        <li>Instalación de Go</li></ul>',
 		'trainers' => '<a href="http://fernandoipar.com/">Fernando Ipar</a> | <a href="http://twitter.com/GustavoKristic">Gustavo Kristic</a>',
 		'reqs' => ''
 	),
