@@ -46,6 +46,9 @@ function findAttendee($token, $eventId, $email)
 {
     $page = 1;
     do {
+        # La api de eventbrite retorna un máximo de 50 resultados, por lo que se
+        # debe iterar hasta que se encuentre el email o no exitan más resultados
+        # sobre los cuales buscar.
         $result   = getAttendees($token, $eventId, $page++);
         $profiles = array_filter($result, function ($attendee) use ($email) {
             return $email === $attendee['profile']['email'];
@@ -165,6 +168,7 @@ call_user_func(function (array $request) {
     try {
         $config = require(__DIR__.'/config.php');
 
+        # Buscamos el usuario en la lista de asistentes a la conferencia
         if (null === findAttendee($config['eventbrite']['token'], $config['eventbrite']['event_id'], $email)) {
             throw new LogicException('Primero debes registrarte en la conferencia para poder acceder a los workshops.');
         }
@@ -173,6 +177,7 @@ call_user_func(function (array $request) {
 
         $dbConfig = $config['db'];
 
+        # Conexión PDO
         $pdo = new PDO(strtr('mysql:dbname=__dbname;host=__host', [
             '__dbname' => $dbConfig['database'],
             '__host'   => $dbConfig['host'],
