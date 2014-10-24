@@ -70,9 +70,14 @@ Todas estas herramientas, además de consejos y trucos aprendidos a lo largo de 
 	),
 	array(
 		'img' => 'golang.png',
-		'titulo' => 'Programación concurrente en GO',
-		'descripcion' => '... próximamente ...',
-		'trainers' => '<a href="http://fernandoipar.com/">Fernando Ipar</a>',
+		'titulo' => 'Programación concurrente en o',
+		'descripcion' => 'Introducción a las características de GO que facilitan la escritura de programas concurrentes.
+
+        No es un taller introductorio al lenguaje, pero cualquiera con algo de experiencia en un lenguaje imperativo estará en condiciones de seguir los ejemplos. 
+        Requisitos: 
+        <ul><li>Editor de texto</li>
+        <li>Instalación de o</li></ul>',
+		'trainers' => '<a href="http://fernandoipar.com/">Fernando Ipar</a> | <a href="http://twitter.com/GustavoKristic">Gustavo Kristic</a>',
 		'reqs' => ''
 	),
 	array(
@@ -103,7 +108,7 @@ Se asumen conocimientos generales de programación en un lenguaje como Java o Ru
 	array(
 		'img' => 'mysql.png',
 		'titulo' => 'Big Data Analytics: cálculos al estilo map-reduce en MySQL con Shard Query.',
-		'descripcion' => '... próximamente ...',
+		'descripcion' => 'Introducción a Shard Query, un motor open source de ejecución de consultas masivamente paralelas para MySQL, con énfasis en la solución de algunos problemas que típicamente se manejan con implementaciones de Map Reduce.',
 		'trainers' => 'Agustín Gallego, <a href="http://fernandoipar.com/">Fernando Ipar</a> by <a href="http://www.meetup.com/The-Montevideo-MySQL-Meetup-Group/">Mysql Meetup</a>',
 		'reqs' => ''
 	),
