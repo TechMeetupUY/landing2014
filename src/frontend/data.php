@@ -76,6 +76,12 @@ $sponsors =  array(
         'type' => 'green'
     ),
     array(
+        'alt' => 'Altimetrik',
+        'url' => 'http://www.altimetrik.com/',
+        'img' => 'altimetrik.png',
+        'type' => 'green'
+    ),
+    array(
         'alt' => 'Guruhub',
         'url' => 'http://guruhub.com.uy',
         'img' => 'guruhub.png',
