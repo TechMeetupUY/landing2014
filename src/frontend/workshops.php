@@ -5,10 +5,11 @@
 		'titulo' => '',
 		'descripcion' => '',
 		'trainers' => '',
-		'reqs' => ''
+		'reqs' => '',
+        'key' => ''
 	),
 */
-$workshops = array(
+return array(
 	array(
 		'img' => 'mobile_testing.png',
 		'titulo' => 'Los nuevos desafíos en Mobile Testing',
@@ -18,7 +19,8 @@ $workshops = array(
 ¿Qué herramientas hay disponibles? ¿Qué pasa con la usabilidad, cómo la probamos?
 Estas y otras preguntas son las que estaremos en este workshop mostrando cómo las abordamos en Abstracta, compartiendo nuestras experiencias e investigación al respecto.',
 		'trainers' => 'by Abstracta',
-		'reqs' => 'Un smart device cualquiera.'
+		'reqs' => 'Un smart device cualquiera.',
+        'key' => 'mobile_testing'
 	),
 	array(
 		'img' => 'ios.png',
@@ -29,7 +31,8 @@ No es necesario que sepas de Objective-C ni que conozcas cómo funciona el Xcode
 En el workshop iremos paso a paso, no sólo para aprender, sino también para 
 terminar creando tu primer app.',
 		'trainers' => 'Nicolás Alliaume, Diego Mazzone by <a href="http://www.meetup.com/applemvd/">AppleMVD meetup</a>',
-		'reqs' => 'Es necesario traer una Mac, o juntarse con un compañero que tenga una, con el Xcode Instalado (versión 5.1.1 o superior). No es necesario tener conocimientos de Objective-C o C, pero sí de programación orientada a objetos.'
+		'reqs' => 'Es necesario traer una Mac, o juntarse con un compañero que tenga una, con el Xcode Instalado (versión 5.1.1 o superior). No es necesario tener conocimientos de Objective-C o C, pero sí de programación orientada a objetos.',
+        'key' => 'ios'
 	),
 	array(
 		'img' => 'arduino.png',
@@ -38,7 +41,8 @@ terminar creando tu primer app.',
 
 		Además los participantes (con la ayuda de los docentes) deberán programar un juego usando la placa Arduino. Realizaremos una competencia final usando el juego desarrollado por los participantes.',
 		'trainers' => 'by <a href="http://www.mvdrobotics.com/">MVDRobotics</a>',
-		'reqs' => 'Nosotros nos encargamos! :) '
+		'reqs' => 'Nosotros nos encargamos! :) ',
+        'key' => 'arduino'
 	),
 	array(
 		'img' => 'nodejs.png',
@@ -51,7 +55,8 @@ terminar creando tu primer app.',
 <li>Crear un servidor con API en JSON.</li></ul>',
 		'trainers' => 'Martin Prunell, Pablo Ricco, Luis Cal y Pablo de Juan by <a href="http://www.meetup.com/mvd-js/">MVDjs meetup</a></li>',
 		'reqs' => '<ul><li>Nociones elementales de programación y de JavaScript. El taller será de enfoque netamente práctico orientado a principiantes en NodeJS.
-		<li>Se utilizará un programa de NodeJS para el taller y se requiere equipo propio, Linux, Mac o Windows. El material adicional se entregará en el taller.</li></ul>'
+		<li>Se utilizará un programa de NodeJS para el taller y se requiere equipo propio, Linux, Mac o Windows. El material adicional se entregará en el taller.</li></ul>',
+        'key' => 'nodejs'
 	),
 	array(
 		'img' => 'dev_toolbox.png',
@@ -66,14 +71,16 @@ En esta charla introduciremos y exploraremos las herramientas que marcan una rea
 
 Todas estas herramientas, además de consejos y trucos aprendidos a lo largo de años de experiencia harán de esta charla muy interesante para desarrolladores de diversos niveles.',
 		'trainers' => '<a href="https://twitter.com/pgodel">Pablo Godel</a> by <a href="http://phpmvd.uy">PHPmvd meetup</a>',
-		'reqs' => ''
+		'reqs' => '',
+        'key' => 'dev_toolbox'
 	),
 	array(
 		'img' => 'golang.png',
 		'titulo' => 'Programación concurrente en GO',
 		'descripcion' => '... próximamente ...',
 		'trainers' => '<a href="http://fernandoipar.com/">Fernando Ipar</a>',
-		'reqs' => ''
+		'reqs' => '',
+        'key' => 'golang'
 	),
 	array(
 		'img' => 'scala.png',
@@ -89,6 +96,7 @@ Los ejercicios son tareas específicas con múltiples modos de solución; extrac
 Instrucciones se publicarán en la web una semana antes.
 
 Se asumen conocimientos generales de programación en un lenguaje como Java o Ruby.',
+        'key' => 'scala'
 	),
 	array(
 		'img' => 'openstack.png',
@@ -99,13 +107,15 @@ Se asumen conocimientos generales de programación en un lenguaje como Java o Ru
     'reqs' => '<ul><li>Laptop con WiFi</li>
                    <li>Cliente ssh instaldo</li>
                </ul>',
+        'key' => 'openstack'
 	),
 	array(
 		'img' => 'mysql.png',
 		'titulo' => 'Big Data Analytics: cálculos al estilo map-reduce en MySQL con Shard Query.',
 		'descripcion' => '... próximamente ...',
 		'trainers' => 'Agustín Gallego, <a href="http://fernandoipar.com/">Fernando Ipar</a> by <a href="http://www.meetup.com/The-Montevideo-MySQL-Meetup-Group/">Mysql Meetup</a>',
-		'reqs' => ''
+		'reqs' => '',
+        'key' => 'mysql'
 	),
 	array(
 		'img' => 'agile.png',
@@ -129,7 +139,7 @@ Prioridades
 El objetivo principal del taller es que los participantes tengan la experiencia suficiente como para facilitar uno de estos talleres en sus propios proyectos.
 ',
 		'trainers' => '',
-		'reqs' => ''
+		'reqs' => '',
+        'key' => 'agile'
 	),
 );
-?>
