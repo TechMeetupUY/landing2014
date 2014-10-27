@@ -20,7 +20,8 @@ return array(
 Estas y otras preguntas son las que estaremos en este workshop mostrando cómo las abordamos en Abstracta, compartiendo nuestras experiencias e investigación al respecto.',
 		'trainers' => 'Fabian Baptista | Matías Reina',
 		'reqs' => 'Un smart device cualquiera.',
-        'key' => 'mobile_testing'
+        'key' => 'mobile_testing',
+		'max' => 40
 	),
 	array(
 		'img' => 'ios.png',
@@ -32,7 +33,8 @@ En el workshop iremos paso a paso, no sólo para aprender, sino también para
 terminar creando tu primer app.',
 		'trainers' => 'Nicolás Alliaume, Diego Mazzone by <a href="http://www.meetup.com/applemvd/">AppleMVD meetup</a>',
 		'reqs' => 'Es necesario traer una Mac, o juntarse con un compañero que tenga una, con el Xcode Instalado (versión 5.1.1 o superior). No es necesario tener conocimientos de Objective-C o C, pero sí de programación orientada a objetos.',
-        'key' => 'ios'
+        'key' => 'ios',
+		'max' => 40
 	),
 	array(
 		'img' => 'arduino.png',
@@ -42,7 +44,8 @@ terminar creando tu primer app.',
 		Además los participantes (con la ayuda de los docentes) deberán programar un juego usando la placa Arduino. Realizaremos una competencia final usando el juego desarrollado por los participantes.',
 		'trainers' => 'by <a href="http://www.mvdrobotics.com/">MVDRobotics</a>',
 		'reqs' => 'Nosotros nos encargamos! :) ',
-        'key' => 'arduino'
+        'key' => 'arduino',
+		'max' => 40
 	),
 	array(
 		'img' => 'nodejs.png',
@@ -56,7 +59,8 @@ terminar creando tu primer app.',
 		'trainers' => 'Martin Prunell, Pablo Ricco, Luis Cal y Pablo de Juan by <a href="http://www.meetup.com/mvd-js/">MVDjs meetup</a></li>',
 		'reqs' => '<ul><li>Nociones elementales de programación y de JavaScript. El taller será de enfoque netamente práctico orientado a principiantes en NodeJS.
 		<li>Se utilizará un programa de NodeJS para el taller y se requiere equipo propio, Linux, Mac o Windows. El material adicional se entregará en el taller.</li></ul>',
-        'key' => 'nodejs'
+        'key' => 'nodejs',
+		'max' => 40
 	),
 	array(
 		'img' => 'dev_toolbox.png',
@@ -72,7 +76,8 @@ En esta charla introduciremos y exploraremos las herramientas que marcan una rea
 Todas estas herramientas, además de consejos y trucos aprendidos a lo largo de años de experiencia harán de esta charla muy interesante para desarrolladores de diversos niveles.',
 		'trainers' => '<a href="https://twitter.com/pgodel">Pablo Godel</a> by <a href="http://phpmvd.uy">PHPmvd meetup</a>',
 		'reqs' => '',
-        'key' => 'dev_toolbox'
+        'key' => 'dev_toolbox',
+		'max' => 40
 	),
 	array(
 		'img' => 'golang.png',
@@ -82,7 +87,8 @@ Todas estas herramientas, además de consejos y trucos aprendidos a lo largo de 
         No es un taller introductorio al lenguaje, pero cualquiera con algo de experiencia en un lenguaje imperativo estará en condiciones de seguir los ejemplos.',
 		'trainers' => '<a href="http://fernandoipar.com/">Fernando Ipar</a> | <a href="http://twitter.com/GustavoKristic">Gustavo Kristic</a>',
 		'reqs' => '<ul><li>Editor de texto</li><li>Instalación de Go</li></ul>',
-        'key' => 'golang'
+        'key' => 'golang',
+		'max' => 40
 	),
 	array(
 		'img' => 'scala.png',
@@ -98,7 +104,8 @@ Los ejercicios son tareas específicas con múltiples modos de solución; extrac
 Instrucciones se publicarán en la web una semana antes.
 
 Se asumen conocimientos generales de programación en un lenguaje como Java o Ruby.',
-        'key' => 'scala'
+        'key' => 'scala',
+		'max' => 40
 	),
 	array(
 		'img' => 'openstack.png',
@@ -109,7 +116,8 @@ Se asumen conocimientos generales de programación en un lenguaje como Java o Ru
     'reqs' => '<ul><li>Laptop con WiFi</li>
                    <li>Cliente ssh instaldo</li>
                </ul>',
-        'key' => 'openstack'
+        'key' => 'openstack',
+		'max' => 20
 	),
 	array(
 		'img' => 'mysql.png',
@@ -117,7 +125,8 @@ Se asumen conocimientos generales de programación en un lenguaje como Java o Ru
 		'descripcion' => 'Introducción a Shard Query, un motor open source de ejecución de consultas masivamente paralelas para MySQL, con énfasis en la solución de algunos problemas que típicamente se manejan con implementaciones de Map Reduce.',
 		'trainers' => 'Agustín Gallego, <a href="http://fernandoipar.com/">Fernando Ipar</a> by <a href="http://www.meetup.com/The-Montevideo-MySQL-Meetup-Group/">Mysql Meetup</a>',
 		'reqs' => '',
-        'key' => 'mysql'
+        'key' => 'mysql',
+		'max' => 20
 	),
 	array(
 		'img' => 'agile.png',
@@ -142,6 +151,7 @@ El objetivo principal del taller es que los participantes tengan la experiencia 
 ',
 		'trainers' => '',
 		'reqs' => '',
-        'key' => 'agile'
+        'key' => 'agile',
+		'max' => 20
 	),
 );
