@@ -192,6 +192,12 @@ $sponsors =  array(
         'type' => 'blue'
     ),
     array(
+        'alt' => 'Amaretto',
+        'url' => 'http://amaretto.com.uy/',
+        'img' => 'amaretto.jpg',
+        'type' => 'blue'
+    ),
+    array(
         'alt' => 'Pepsi',
         'url' => '#',
         'img' => 'pepsi.png',
