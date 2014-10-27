@@ -323,7 +323,7 @@ $speakers =  array(
      array(
         'flag'      => 'uy',
         'name'      => 'Gabriel Ledesma',
-        'title'     => '',
+        'title'     => 'Agile Coach de WyeWorks',
         'picture'   => 'gabrielledesma.jpeg',
         'twitter'   => 'galafed',
         'linkedin'  => 'http://uy.linkedin.com/in/gabrielledesma',
