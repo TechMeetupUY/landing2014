@@ -145,7 +145,7 @@ call_user_func(function (array $request) {
         stopWithBadRequest($errors);
     }
 
-    $workshopsData = include __DIR__.'/workshops.php';
+    $workshopsData = include __DIR__.'/../workshops.php';
 
     # Obtengo los keys de los workshops para poder comparar
     # con los datos del $_POST
@@ -166,7 +166,7 @@ call_user_func(function (array $request) {
     }
 
     try {
-        $config = require(__DIR__.'/config.php');
+        $config = require(__DIR__.'/../config.php');
 
         # Buscamos el usuario en la lista de asistentes a la conferencia
         if (null === findAttendee($config['eventbrite']['token'], $config['eventbrite']['event_id'], $email)) {
