@@ -71,16 +71,20 @@ function findAttendee($token, $eventId, $email)
  * @param string $nombre    El nombre del usuario
  * @param string $email     El email del usuario
  * @param array  $workshops Los workshops a los que se registró
+ * @param string $asistencia
  */
-function registerWorkshop(PDO $pdo, $nombre, $email, array $workshops)
+function registerWorkshops(PDO $pdo, $nombre, $email, array $workshops, $asistencia)
 {
-    $insertStmt = $pdo->prepare('INSERT INTO workshops (nombre, email, workshops) VALUES (:nombre, :email, :workshops)');
+    foreach ($workshops as $workshop) {
+        $insertStmt = $pdo->prepare('INSERT INTO workshops (nombre, email, workshop, asiste_conferencia) VALUES (:nombre, :email, :workshop, :asiste_conferencia)');
 
-    $insertStmt->bindValue(':nombre', $nombre);
-    $insertStmt->bindValue(':email', $email);
-    $insertStmt->bindValue(':workshops', implode(', ', $workshops));
+        $insertStmt->bindValue(':nombre', $nombre);
+        $insertStmt->bindValue(':email', $email);
+        $insertStmt->bindValue(':workshop', $workshop);
+        $insertStmt->bindValue(':asiste_conferencia', $asistencia);
 
-    $insertStmt->execute();
+        $insertStmt->execute();
+    }
 }
 
 /**
@@ -121,11 +125,12 @@ if (!isset($_POST) || empty($_POST)) {
 call_user_func(function (array $request) {
     header('Content-Type: application/json');
 
-    $nombre    = isset($request['nombre']) ? $request['nombre'] : '';
-    $email     = isset($request['email']) ? $request['email'] : '';
-    $workshops = array_filter(isset($request['workshops']) ? $request['workshops'] : [], function ($workshop) {
+    $nombre     = isset($request['nombre']) ? $request['nombre'] : '';
+    $email      = isset($request['email']) ? $request['email'] : '';
+    $workshops  = array_filter(isset($request['workshops']) ? $request['workshops'] : [], function ($workshop) {
         return !empty($workshop) && is_scalar($workshop);
     });
+    $asistencia = isset($request['asistencia']) ? $request['asistencia'] : '';
 
     $errors = [];
 
@@ -184,7 +189,7 @@ call_user_func(function (array $request) {
         ]), $dbConfig['user'], $dbConfig['password']);
 
         verifyExistence($pdo, $email);
-        registerWorkshop($pdo, $nombre, $email, $workshops);
+        registerWorkshops($pdo, $nombre, $email, $workshops, $asistencia);
     } catch (PDOException $e) {
         error_log($e->getMessage(), E_USER_NOTICE);
         stopWithBadRequest([
