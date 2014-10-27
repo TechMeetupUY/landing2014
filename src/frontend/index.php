@@ -297,12 +297,8 @@ do{
 	    <section class="sixteen columns sponsors clearfix">
 
 	        <h1 >Sponsors</h1>
-	        <p>TechMeetupUY es posible gracias a nuestros increíbles sponsors. Estamos muy agradecidos a cada una de las empresas que han apoyado y ayudado a hacer esta conferencia posible. Únete a nosotros y potencia la comunidad IT de Uruguay.</p>
-	            <h2><a id="sponsors-pdf" href="docs/tech.meetup.uy.sponsors.v2014.pdf" target="_blank">Descarga el documento con los paquetes de apoyo</a></h2>
-	            <p>Estamos abiertos a otras formas de apoyo, envíanos tu idea a <a href="mailto:info@meetup.uy">info@meetup.uy</a></p>
-
+	        <p>TechMeetupUY es posible gracias a nuestros increíbles sponsors. Estamos muy agradecidos a cada una de las empresas que han apoyado y ayudado a hacer esta conferencia posible.</p>
 	        <h1>Apoyan</h1>
-
 	        <div class="center clearfix">
             <?php 
             $i = 1;
