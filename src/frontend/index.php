@@ -162,17 +162,14 @@
 		<div class="container container-with-margin" id="compra">
 		    <section class="sixteen columns compra clearfix">
 
-		        <h1 style="color: black;">Comprá tu Entrada</h1>
-		        <h3 style="color: black;">Reservá tu lugar en la TechMeetup 2014 ahora!</h3>
+		        <h1 style="color: black;">Comprá tu Entrada y reservá tu lugar</h1>
+		        <h1 style="color: black;">U$S 25.00</h1>
 		        
-				<br>
-
 				<div class="eight columns alpha buy-with">
 					<a href="http://www.eventbrite.com/e/registro-techmeetup-12222121695?aff=eorg" target="_blank">
 						<img src="/assets/images/2014/landing/btn-paypal.png" alt="">
 					</a>
 				</div>
-
 				<div class="eight columns omega buy-with">
 					<a href="http://bit.ly/1sQatvY" target="_blank">
 						<img src="/assets/images/2014/landing/btn-redpagos.png" alt="">
