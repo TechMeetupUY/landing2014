@@ -232,7 +232,7 @@ do{
 							</p>
 							<?php } ?>
 							<ul class="inline unstyled">
-								<li><i class="icon-link"></i> <?=$workshops[$i]['trainers']; ?></li>
+								<li><i class="fa fa-link"></i> <?=$workshops[$i]['trainers']; ?></li>
 							</ul>
 							
 						</div>
@@ -264,7 +264,7 @@ do{
 							</p>
 							<?php } ?>
 							<ul class="inline unstyled">
-								<li><i class="icon-link"></i> <?=$workshops[$i+1]['trainers']; ?></li>
+								<li><i class="fa fa-link"></i> <?=$workshops[$i+1]['trainers']; ?></li>
 							</ul>
 
 						</div>
