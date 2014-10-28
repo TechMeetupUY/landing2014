@@ -818,3 +818,17 @@ footer{
 .fr{
   float: right;
 }
+
+.buy-with{
+  padding: 30px 0;
+  @include opacity(.8);
+  @include simple-animation(.5s);
+
+  &:hover{
+    @include opacity(1);    
+  }
+
+  a{
+    display: block;
+  }
+}

@@ -155,9 +155,9 @@
 	<div class="yellow-wrapper">
 		<div class="container container-with-margin" id="compra">
 		    <section class="sixteen columns compra clearfix">
-
-		        <h1>Buy Your ticket</h1>
-		        <p>Book your place at the 2014 TechMeetup now!</p>
+				<!--
+		        <h1></h1>
+		        <p></p>
 		        
 				<br>
 
@@ -182,6 +182,31 @@
 				</div>
 
 				<br>
+
+				-->
+				
+		        <h1 style="color: black;">Buy Your ticket</h1>
+		        <h3 style="color: black;">Book your place at the 2014 TechMeetup now!</h3>
+		        
+				<br>
+
+				<div class="eight columns alpha buy-with">
+					<a href="http://www.eventbrite.com/e/registro-techmeetup-12222121695?aff=eorg" target="_blank">
+						<img src="/assets/images/2014/landing/btn-paypal.png" alt="">
+					</a>
+				</div>
+
+				<div class="eight columns omega buy-with">
+					<a href="http://bit.ly/1sQatvY" target="_blank">
+						<img src="/assets/images/2014/landing/btn-redpagos.png" alt="">
+					</a>
+				</div>
+
+				<div class="clearfix"></div>
+
+				<div style="font-size:16px; padding: 20px 0; margin:30px 0 0 0; width:100%; text-align:center;" >
+					<a style="color:black; text-decoration:none;" target="_blank" href="http://www.eventbrite.com/e/registro-techmeetup-12222121695?aff=eorg">Online ticket sale</a> <span style="color:black;">via</span> <a style="color:black; text-decoration:none;font-weight:bold;" target="_blank" href="http://www.eventbrite.com/e/registro-techmeetup-12222121695?aff=eorg">Eventbrite</a>
+				</div>
 
 		    </section>
 		</div>
