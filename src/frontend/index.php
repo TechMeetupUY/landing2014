@@ -162,32 +162,28 @@
 		<div class="container container-with-margin" id="compra">
 		    <section class="sixteen columns compra clearfix">
 
-		        <h1>Comprá tu Entrada</h1>
-		        <p>Reservá tu lugar en la TechMeetup 2014 ahora!</p>
+		        <h1 style="color: black;">Comprá tu Entrada</h1>
+		        <h3 style="color: black;">Reservá tu lugar en la TechMeetup 2014 ahora!</h3>
 		        
 				<br>
 
-				<div style="width:100%; text-align:left;height:300px" >
-					
-					<iframe style="position: relative!important;" src="//eventbrite.com/tickets-external?eid=12222121695&ref=etckt" 
-						frameborder="0" 
-						height="247" 
-						width="100%" 
-						vspace="0" 
-						hspace="0" 
-						marginheight="5" 
-						marginwidth="5" 
-						scrolling="auto" 
-						allowtransparency="true" >
-					</iframe>
-
+				<div class="eight columns alpha buy-with">
+					<a href="http://www.eventbrite.com/e/registro-techmeetup-12222121695?aff=eorg" target="_blank">
+						<img src="/assets/images/2014/landing/btn-paypal.png" alt="">
+					</a>
 				</div>
 
-				<div style="font-size:15px; padding:5px 0 5px; margin:2px; width:100%; text-align:center;" >
-					<a style="color:black; text-decoration:none;" target="_blank" href="http://bit.ly/techmeetup14-beca">Si sos estudiante y querés solicitar una beca hace click <strong>aquí</strong></a> 
+				<div class="eight columns omega buy-with">
+					<a href="http://bit.ly/1sQatvY" target="_blank">
+						<img src="/assets/images/2014/landing/btn-redpagos.png" alt="">
+					</a>
 				</div>
 
-				<br>
+				<div class="clearfix"></div>
+
+				<div style="font-size:16px; padding: 20px 0; margin:30px 0 0 0; width:100%; text-align:center;" >
+					<a style="color:black; text-decoration:none;" target="_blank" href="http://bit.ly/techmeetup14-beca"><h4 style="color:black;">Si sos estudiante y querés solicitar una beca hace click <strong>aquí</strong></h4></a> 
+				</div>
 
 		    </section>
 		</div>
