@@ -9,6 +9,7 @@
 @import "modules/speakers";
 
 @import "sections/landing";
+@import "sections/apoyan";
 
 @import "headervideo";
 
@@ -42,6 +43,19 @@ body{
 
 /* Tablet Portrait size to standard 960 (devices and browsers) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
+  
+  .organizer.organizer-small{
+    margin-left: 14px;
+
+    h4{
+      font-size: 17px;
+    }
+
+    a{
+      font-size: 14px;
+    }
+  }
+
   .header-event{ 
     bottom: 30px; 
     left: 10px;
@@ -75,13 +89,14 @@ body{
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
-  // body{
-  //   background: red;
-  // }
 }
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+
+  .organizer.organizer-small{
+    margin-left: 0;
+  }
 
   .header-video{
     height: 400px;
@@ -177,9 +192,9 @@ body{
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {
-  // body{
-  //   background: green;
-  // }
+  .organizer.organizer-small{
+    margin-left: 0;
+  }
 
   .header-video{
     height: 270px;

@@ -467,6 +467,103 @@ do{
 
 
 
+	<div class="container container-with-margin" id="apoyan" style="margin-top: 60px;">
+	    <section class="sixteen columns organizers clearfix">
+
+	    	<h3 id="organizadores">Apoyan en la Organización</h3>
+
+	    	<br>
+	    	
+	    	<div class="center clearfix">
+
+
+	    		<!-- row start -->
+	    		<!-- row start -->
+	    		<!-- row start -->
+		    	
+		    	<div class="three columns organizer organizer-small alpha">
+		    		<img src="assets/images/2014/landing/organizers/default.jpg" alt="Diego Sapriza">
+					<h4>Lindolfo Cuestas</h4>
+					<a href="http://twitter.com/AV4TAr" target="_blank">@AV4TAr</a>
+		    	</div>
+
+		    	<div class="three columns organizer organizer-small">
+    	    		<img src="assets/images/2014/landing/organizers/default.jpg" alt="Diego Sapriza">
+    				<h4>Lindolfo Cuestas</h4>
+    				<a href="http://twitter.com/AV4TAr" target="_blank">@AV4TAr</a>
+				</div>
+				
+				<div class="three columns organizer organizer-small">
+		    		<img src="assets/images/2014/landing/organizers/default.jpg" alt="Gustavo Armagno">
+					<h4>Lindolfo Cuestas</h4>
+					<a href="http://twitter.com/GustavoArmagno" target="_blank">@GustavoArmagno</a>
+				</div>
+				
+				<div class="three columns organizer organizer-small">
+		    		<img src="assets/images/2014/landing/organizers/default.jpg" alt="Ignacio Nin">
+					<h4>Lindolfo Cuestas</h4>
+					<a href="http://twitter.com/nachexnachex" target="_blank">@nachexnachex</a>
+				</div>
+
+				<div class="three columns organizer organizer-small omega">
+		    		<img src="assets/images/2014/landing/organizers/default.jpg" alt="Ignacio Nin">
+					<h4>Lindolfo Cuestas</h4>
+					<a href="http://twitter.com/nachexnachex" target="_blank">@nachexnachex</a>
+				</div>
+
+				<div class="clear"></div>
+				
+				<br>
+
+				<!-- row end -->
+				<!-- row end -->
+				<!-- row end -->
+				
+
+
+
+		    	<div class="three columns organizer organizer-small alpha">
+		    		<img src="assets/images/2014/landing/organizers/default.jpg" alt="Diego Sapriza">
+					<h4>Santiago Camelo</h4>
+					<a href="http://twitter.com/AV4TAr" target="_blank">@AV4TAr</a>
+		    	</div>
+
+		    	<div class="three columns organizer organizer-small">
+    	    		<img src="assets/images/2014/landing/organizers/default.jpg" alt="Diego Sapriza">
+    				<h4>Diego Sapriza</h4>
+    				<a href="http://twitter.com/AV4TAr" target="_blank">@AV4TAr</a>
+				</div>
+				
+				<div class="three columns organizer organizer-small">
+		    		<img src="assets/images/2014/landing/organizers/default.jpg" alt="Gustavo Armagno">
+					<h4>Gustavo Armagno</h4>
+					<a href="http://twitter.com/GustavoArmagno" target="_blank">@GustavoArmagno</a>
+				</div>
+				
+				<div class="three columns organizer organizer-small">
+		    		<img src="assets/images/2014/landing/organizers/default.jpg" alt="Ignacio Nin">
+					<h4>Ignacio Nin</h4>
+					<a href="http://twitter.com/nachexnachex" target="_blank">@nachexnachex</a>
+				</div>
+
+				<div class="three columns organizer organizer-small omega">
+		    		<img src="assets/images/2014/landing/organizers/default.jpg" alt="Ignacio Nin">
+					<h4>Ignacio Nin</h4>
+					<a href="http://twitter.com/nachexnachex" target="_blank">@nachexnachex</a>
+				</div>
+
+				<div class="clear"></div>
+				
+				<br>
+
+			</div>
+
+		</section>
+	</div>
+
+
+
+
 	<div class="footer-wrapper">
 		<footer>
 			<div class="container">
