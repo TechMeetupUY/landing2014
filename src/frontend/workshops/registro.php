@@ -116,7 +116,9 @@ function stopWithBadRequest(array $errors = [])
     exit(1);
 }
 
-if (!isset($_POST) || empty($_POST)) {
+$postData = json_decode(file_get_contents('php://input'), true);
+
+if (!is_array($postData) || empty($postData)) {
     header('HTTP/1.0 404 Not Found', null, 404);
 
     exit(1);
@@ -202,4 +204,4 @@ call_user_func(function (array $request) {
     }
 
     echo json_encode(['success' => true]);
-}, $_POST);
+}, $postData);

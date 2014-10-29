@@ -1,3 +1,42 @@
+<?php
+
+function getWorkshops()
+{
+    $quantities = [];
+
+    try {
+        $config = require(__DIR__.'/../config.php');
+
+        $dbConfig = $config['db'];
+
+        # Conexión PDO
+        $pdo = new PDO(strtr('mysql:dbname=__dbname;host=__host', [
+            '__dbname' => $dbConfig['database'],
+            '__host'   => $dbConfig['host'],
+        ]), $dbConfig['user'], $dbConfig['password']);
+
+        $stmt = $pdo->prepare('SELECT workshop, COUNT(1) as quantity FROM workshops GROUP BY workshop');
+        $stmt->execute();
+
+        foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
+            $quantities[$row['workshop']] = $row['quantity'];
+        }
+    } catch (PDOException $e) {
+    }
+
+    $workshops = include(__DIR__.'/../workshops.php');
+
+    return array_map(function ($workshop) use ($quantities) {
+        $waitingList = isset($quantities[$workshop['key']]) && $quantities[$workshop['key']] >= $workshop['max'];
+
+        return [
+            'key'    => $workshop['key'],
+            'titulo' => $workshop['titulo'].($waitingList ? '  *** lista de espera ***' : '')
+        ];
+    }, $workshops);
+}
+
+?>
 <!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -41,24 +80,24 @@
             </div>
         </header>
 
-        <div class="container container-with-margins" style="top: 100px;">
-            <section class="sixteen columns workshops clearfix">
+        <div class="container container-with-margins" style="top: 100px;" ng-app="meetupWorkshops">
+            <section class="sixteen columns workshops clearfix" ng-controller="FormCtrl" ng-init="workshops = <?= htmlspecialchars(json_encode(getWorkshops())) ?>">
 
                 <h2>Registrate en los workshops</h2>
 
                 <p>Debes ingresar tus datos y seleccionar al menos un workshop al que estés interesado asistir. ¡Los cupos son limitados!</p>
 
-                <form action="#" id="workshop-form">
+                <form name="wsForm" ng-submit="submit()" id="workshop-form">
                     <fieldset>
                         <div class="sixteen columns">
-                            <div class="five columns">
-                                <label style="text-align: left;" for="workshop-name">Nombre</label>
-                                <input style="text-align: left;" type="text" name="nombre" id="workshop-name" required/>
+                            <div class="five columns" ng-class="{error: wsForm.nombre.$invalid && wsForm.$dirty}">
+                                <label for="workshop-name">Nombre</label>
+                                <input type="text" name="nombre" id="workshop-name" ng-model="model.nombre" required ng-minlength="4"/>
                             </div>
 
-                            <div class="five columns">
-                                <label style="text-align: left;" for="workshop-email">e-mail</label>
-                                <input style="text-align: left;" type="email" name="email" id="workshop-email" placeholder="Dirección del registro." required/>
+                            <div class="five columns" ng-class="{error: wsForm.email.$invalid && wsForm.$dirty}">
+                                <label for="workshop-email">e-mail</label>
+                                <input type="email" name="email" id="workshop-email" ng-model="model.email" placeholder="Dirección del registro." required/>
                             </div>
                         </div>
                     </fieldset>
@@ -66,25 +105,32 @@
 
                     <fieldset>
                         <div class="sixteen columns">
-                            <?php $options = implode(' ', array_map(function ($workshop) {
-                                return sprintf('<option value="%s">%s</option>', htmlspecialchars($workshop['key']), htmlspecialchars($workshop['titulo']));
-                            }, include(__DIR__.'/../workshops.php'))); ?>
-
-                            <?php for ($i = 1; $i <= 3; $i++): ?>
-                                <div class="five columns" style="text-align: left;">
+                            <?php
+                            for ($i = 1; $i <= 3; $i++): ?>
+                                <div class="five columns" ng-class="{error: wsForm.workshop<?= $i; ?>.$invalid && wsForm.$dirty}">
                                     <label style="text-align: left;" for="workshop-dropdown-<?= $i; ?>">Workshop</label>
-                                    <select name="workshops[]" id="workshop-dropdown-<?= $i; ?>" <?= 1 === $i ? 'required="required"' : '' ?> id="workshop<?= $i ?>">
+                                    <select ng-options="w.key as w.titulo for w in workshops" ng-model="model.workshops[<?= $i; ?>]" name="workshop<?= $i; ?>" id="workshop-dropdown-<?= $i; ?>" <?= 1 === $i ? 'required="required"' : '' ?> id="workshop<?= $i ?>">
                                         <option value="">---</option>
-                                        <?= $options; ?>
                                     </select>
                                 </div>
                             <?php endfor; ?>
                         </div>
                     </fieldset>
 
-                    <p class="messages"></p>
+                    <fieldset>
+                        <div class="sixteen columns">
+                            <div class="five columns" ng-class="{error: wsForm.asistencia.$invalid && wsForm.$dirty}" >
+                                <label style="text-align: left;" for="workshop-asistencia">Vienes a la conferencia?</label>
+                                <select name="asistencia" id="workshop-asistencia" ng-model="model.asistencia" ng-options="key as name for (key, name) in {'si': 'Obvio', 'no': 'Me la pierdo'}" required>
+                                    <option value=""> --- </option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
 
-                    <button type="submit" disabled="disabled">Registrarme</button>
+                    <p class="message" ng-repeat="message in messages" ng-class="{error: message.error}" ng-bind="message.text"></p>
+
+                    <button type="submit" ng-disabled="wsForm.$invalid">Registrarme</button>
                 </form>
             </section>
         </div>

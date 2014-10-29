@@ -1,54 +1,36 @@
-(function ($) {
+(function (ng) {
     'use strict';
 
-    var app = {
-        bindWorkshopEvents: function () {
-            var form = $('#workshop-form'), messageContainer = $('.messages', form);
+    var app = ng.module('meetupWorkshops', []);
 
-            // Handle errors when the input changes
-            $('input,select', form).on('change', function () {
-                messageContainer.empty();
+    app.controller('FormCtrl', ['$scope', '$http', function ($scope, $http) {
+        $scope.model = {};
+        $scope.messages = [];
 
-                $('input,select[required]', form).each(function () {
-                    var input = $(this), hasError = !input.val().trim();
-                    input.removeClass('error');
+        $scope.submit = function () {
+            $scope.messages.length = 0;
 
-                    if (hasError) {
-                        input.addClass('error');
-                    }
-                });
-
-                // Disable the submit if there are inputs with errors
-                $(':submit', form).prop("disabled", !!$('.error', form).length);
+            var promise = $http({
+                method: 'POST',
+                url: 'registro.php',
+                data: $scope.model
             });
 
-            form.submit(function () {
-                messageContainer.empty();
+            promise.success(function () {
+                $scope.messages.push({
+                    error: false,
+                    text: '¡Registro completo! Muchas gracias y te esperamos en los workshops.'
+                });
+            });
 
-                $.ajax({
-                    type: 'POST',
-                    url: 'registro.php',
-                    data: form.serialize(),
-                    dataType: 'json'
-                }).done(function (data, textStatus, jqXHR) {
-                    messageContainer.text('¡Registro completo! Muchas gracias y te esperamos en los workshops.');
-                }).fail(function (jqXHR, textStatus, errorThrown) {
-                    var result = $.parseJSON(jqXHR.responseText);
-
-                    result.errors.forEach(function (error) {
-                        messageContainer.append(
-                            $('<div></div>').addClass('error').text(error)
-                        );
+            promise.error(function (result) {
+                result.errors.forEach(function (error) {
+                    $scope.messages.push({
+                        error: true,
+                        text: error
                     });
-                });
-
-                return false;
+                })
             });
-        }
-    };
-
-
-    $(document).ready(function () {
-        app.bindWorkshopEvents();
-    });
-}(jQuery));
+        };
+    }]);
+}(angular));
