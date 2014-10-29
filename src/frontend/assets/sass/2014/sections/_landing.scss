@@ -832,3 +832,15 @@ footer{
     display: block;
   }
 }
+
+#sched-iframe{
+  
+  iframe[style]{
+    position: initial!important;
+    top: initial!important;
+    bottom: initial!important;
+    left: initial!important;
+    right: initial!important;
+  }
+
+}
