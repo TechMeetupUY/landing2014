@@ -144,6 +144,7 @@
         </div>
 
         <script src="../assets/javascripts/jquery.min.js"></script>
+        <script src="../assets/javascripts/angular.min.js"></script>
         <script src="../assets/javascripts/modernizr.js"></script>
 
         <script src="../assets/javascripts/plugins.js"></script>
