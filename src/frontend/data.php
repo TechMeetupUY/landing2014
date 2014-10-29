@@ -329,7 +329,15 @@ $speakers =  array(
         'linkedin'  => 'http://uy.linkedin.com/in/gabrielledesma',
      ),
      array(
-        'flag'      => '',
+        'flag'      => 'uy',
+        'name'      => 'Gabriel Chertok',
+        'title'     => 'Alice in browserland',
+        'picture'   => 'gabriel.jpg',
+        'twitter'   => 'iamcherta',
+        'linkedin'  => 'http://uy.linkedin.com/in/cherta',
+     ),
+     array(
+        'flag'      => 'uy',
         'name'      => 'Próximamente...',
         'title'     => 'más anuncios.',
         'picture'   => '',
