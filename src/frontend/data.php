@@ -338,11 +338,11 @@ $speakers =  array(
      ),
      array(
         'flag'      => 'uy',
-        'name'      => 'Próximamente...',
-        'title'     => 'más anuncios.',
-        'picture'   => '',
+        'name'      => 'Max Patissier',
+        'title'     => 'MakerLab Uruguay',
+        'picture'   => 'max.jpg',
         'twitter'   => '',
-        'linkedin'  => ''
+        'linkedin'  => 'https://www.linkedin.com/pub/max-patissier/1/a17/11a'
     ),
 
 );  
