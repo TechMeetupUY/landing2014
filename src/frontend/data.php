@@ -331,7 +331,7 @@ $speakers =  array(
      array(
         'flag'      => 'uy',
         'name'      => 'Gabriel Chertok',
-        'title'     => 'Alice in browserland',
+        'title'     => 'COO @ INGSW / Co Organizador de JSConfUY, INGSW ',
         'picture'   => 'gabriel.jpg',
         'twitter'   => 'iamcherta',
         'linkedin'  => 'http://uy.linkedin.com/in/cherta',
