@@ -85,7 +85,11 @@ function getWorkshops()
 
                 <h2>Registrate en los workshops</h2>
 
-                <p>Debes ingresar tus datos y seleccionar al menos un workshop al que estés interesado asistir. ¡Los cupos son limitados!</p>
+                <p>
+                  Ingresa tus datos y seleccionar al menos un workshop al que estés interesado asistir. ¡Los cupos son limitados!
+                  <br>
+                  Debes estar registrado en la conferencia para poder participar de los workshops.
+                </p>
 
                 <form name="wsForm" ng-submit="submit()" id="workshop-form">
                     <fieldset>
