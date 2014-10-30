@@ -347,7 +347,7 @@ $speakers =  array(
      array(
         'flag'      => 'uy',
         'name'      => 'Maximiliano Perez',
-        'title'     => 'socialabi',
+        'title'     => 'socialab',
         'picture'   => 'maxi.jpeg',
         'twitter'   => 'Perez_Maxi',
         'linkedin'  => 'https://uy.linkedin.com/in/maximilianoperez'
