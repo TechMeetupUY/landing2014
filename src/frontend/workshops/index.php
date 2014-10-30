@@ -120,7 +120,7 @@ function getWorkshops()
                     <fieldset>
                         <div class="sixteen columns">
                             <div class="five columns" ng-class="{error: wsForm.asistencia.$invalid && wsForm.$dirty}" >
-                                <label style="text-align: left;" for="workshop-asistencia">Vienes a la conferencia?</label>
+                                <label style="text-align: left;" for="workshop-asistencia">¿Vas a la conferencia?</label>
                                 <select name="asistencia" id="workshop-asistencia" ng-model="model.asistencia" ng-options="key as name for (key, name) in {'si': 'Obvio', 'no': 'Me la pierdo'}" required>
                                     <option value=""> --- </option>
                                 </select>
