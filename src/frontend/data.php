@@ -339,10 +339,17 @@ $speakers =  array(
      array(
         'flag'      => 'uy',
         'name'      => 'Max Patissier',
-        'title'     => 'MakerLab Uruguay',
+        'title'     => 'Cloud-stat',
         'picture'   => 'max.jpg',
         'twitter'   => '',
         'linkedin'  => 'https://www.linkedin.com/pub/max-patissier/1/a17/11a'
     ),
-
+     array(
+        'flag'      => 'uy',
+        'name'      => 'Maximiliano Perez',
+        'title'     => 'socialabi',
+        'picture'   => 'maxi.jpeg',
+        'twitter'   => 'Perez_Maxi',
+        'linkedin'  => 'https://uy.linkedin.com/in/maximilianoperez'
+    ),
 );  
