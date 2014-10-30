@@ -191,7 +191,7 @@
 
 	<div class="white-wrapper">
 
-		<div class="container container-with-margin" id="workshops" style="position: initial;">
+		<div class="container container-with-margin" id="agenda" style="position: initial;">
 		    <section class="sixteen columns workshops clearfix">
 
 		        <h1>Agenda</h1>
