@@ -18,7 +18,7 @@ return array(
 ¿Cuales son los nuevos desafíos? ¿Qué necesitamos aprender en estas plataformas?
 ¿Qué herramientas hay disponibles? ¿Qué pasa con la usabilidad, cómo la probamos?
 Estas y otras preguntas son las que estaremos en este workshop mostrando cómo las abordamos en Abstracta, compartiendo nuestras experiencias e investigación al respecto.',
-		'trainers' => 'by Abstracta',
+		'trainers' => 'Fabian Baptista | Matías Reina',
 		'reqs' => 'Un smart device cualquiera.',
         'key' => 'mobile_testing'
 	),
