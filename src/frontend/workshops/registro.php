@@ -197,8 +197,7 @@ call_user_func(function (array $request) {
     } catch (PDOException $e) {
         error_log($e->getMessage(), E_USER_NOTICE);
         stopWithBadRequest(array(
-            'Hubo un error con el procesamiento de los datos. Por favor, intentalo más tarde.',
-            $e->getMessage()
+            'Hubo un error con el procesamiento de los datos. Por favor, intentalo más tarde.'
         ));
     } catch (LogicException $e) {
         error_log($e->getMessage(), E_USER_NOTICE);
