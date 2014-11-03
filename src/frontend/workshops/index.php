@@ -86,7 +86,7 @@ function getWorkshops()
                 <h2>Registrate en los workshops</h2>
 
                 <p>
-                  Ingresa tus datos y seleccionar al menos un workshop al que estés interesado asistir. ¡Los cupos son limitados!
+                  Ingresa tus datos y seleccioná al menos un workshop al que estés interesado asistir. ¡Los cupos son limitados!
                   <br>
                   Debes estar registrado en la conferencia para poder participar de los workshops.
                 </p>
