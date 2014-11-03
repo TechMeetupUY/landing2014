@@ -134,9 +134,10 @@ function getWorkshops()
 
                     <p class="message" ng-repeat="message in messages" ng-class="{error: message.error}" ng-bind="message.text"></p>
 
+                    <p><strong style="font-size: 1.5em;">El registro no asegura tu participación en el workshop. Tendremos en cuenta tu criterio de preferencia para realizar la selección de los participantes. El Martes 11 te notificaremos los resultados de la selección.</strong></p>
+
                     <button type="submit" ng-disabled="wsForm.$invalid">Registrarme</button>
 
-                    <p><em>Puedes revisar la agenda a continuación.</em></p>
                 </form>
             </section>
         </div>
