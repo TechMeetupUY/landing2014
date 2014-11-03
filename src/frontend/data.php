@@ -263,6 +263,11 @@ $apoyan =  array(
         'alt' => 'Escuela de Sistemas y Tecnologías BIOS',
         'url' => 'http://www.biosportal.com/sistemas_tecnologias/',
         'img' => 'bios.jpg'
+    ),
+    array(
+        'alt' => 'Cursos de Programacion en Tecnologias de la Informacion.',
+        'url' => 'http://www.educacionit.com/',
+        'img' => 'educacion_it.jpg'
     )
 );  
 
