@@ -289,8 +289,6 @@ do{
 <?php
 	$i = $i+2;
 } while ($i<$max);
-
-# include(__DIR__.'/workshops-form.php');
 ?>
 
 
