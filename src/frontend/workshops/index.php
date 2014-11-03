@@ -26,14 +26,20 @@ function getWorkshops()
 
     $workshops = include(__DIR__.'/../workshops.php');
 
-    return array_map(function ($workshop) use ($quantities) {
+    usort($workshops, function ($a, $b) {
+        return strcmp($a["hora"], $b["hora"]);
+    });
+
+    $result = array_map(function ($workshop) use ($quantities) {
         $waitingList = isset($quantities[$workshop['key']]) && $quantities[$workshop['key']] >= $workshop['max'];
 
         return array(
             'key'    => $workshop['key'],
-            'titulo' => $workshop['titulo'].($waitingList ? '  *** lista de espera ***' : '')
+            'titulo' => '('.$workshop['hora'].') '.$workshop['titulo'].($waitingList ? '  *** lista de espera ***' : '')
         );
     }, $workshops);
+
+    return $result;
 }
 
 ?>
