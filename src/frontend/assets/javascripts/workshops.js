@@ -19,7 +19,7 @@
             promise.success(function () {
                 $scope.messages.push({
                     error: false,
-                    text: '¡Registro completo! Muchas gracias y te esperamos en los workshops.'
+                    text: '¡Registro completo! Muchas gracias.'
                 });
             });
 
