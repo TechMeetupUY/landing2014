@@ -12,24 +12,26 @@
 function getAttendees($token, $eventId, $page = 1)
 {
     $result = file_get_contents(
-        sprintf('https://www.eventbriteapi.com/v3/events/%d/attendees/?', $eventId).http_build_query([
+        sprintf('https://www.eventbriteapi.com/v3/events/%d/attendees/?', $eventId).http_build_query(array(
             'token'  => $token, // Eventbrite's API token
             'status' => 'attending',
             'page'   => $page
-        ]),
+        )),
         false,
         stream_context_create(array(
             'http' => array(
                 'method' => "GET",
-                'header' => implode("\r\n", [
+                'header' => implode("\r\n", array(
                     'Content-Type: application/json',
                     'Accept: application/json',
-                ]),
+                )),
             )
         ))
     );
 
-    return json_decode($result, true)['attendees'];
+    $json = json_decode($result, true);
+
+    return $json['attendees'];
 }
 
 /**
@@ -71,16 +73,20 @@ function findAttendee($token, $eventId, $email)
  * @param string $nombre    El nombre del usuario
  * @param string $email     El email del usuario
  * @param array  $workshops Los workshops a los que se registró
+ * @param string $asistencia
  */
-function registerWorkshop(PDO $pdo, $nombre, $email, array $workshops)
+function registerWorkshops(PDO $pdo, $nombre, $email, array $workshops, $asistencia)
 {
-    $insertStmt = $pdo->prepare('INSERT INTO workshops (nombre, email, workshops) VALUES (:nombre, :email, :workshops)');
+    foreach ($workshops as $workshop) {
+        $insertStmt = $pdo->prepare('INSERT INTO workshops (nombre, email, workshop, asiste_conferencia) VALUES (:nombre, :email, :workshop, :asiste_conferencia)');
 
-    $insertStmt->bindValue(':nombre', $nombre);
-    $insertStmt->bindValue(':email', $email);
-    $insertStmt->bindValue(':workshops', implode(', ', $workshops));
+        $insertStmt->bindValue(':nombre', $nombre);
+        $insertStmt->bindValue(':email', $email);
+        $insertStmt->bindValue(':workshop', $workshop);
+        $insertStmt->bindValue(':asiste_conferencia', $asistencia);
 
-    $insertStmt->execute();
+        $insertStmt->execute();
+    }
 }
 
 /**
@@ -101,18 +107,20 @@ function verifyExistence(PDO $pdo, $email)
     }
 }
 
-function stopWithBadRequest(array $errors = [])
+function stopWithBadRequest(array $errors = array())
 {
     header('HTTP/1.0 400 Bad Request', null, 400);
 
     if (!empty($errors)) {
-        echo json_encode(['errors' => $errors]);
+        echo json_encode(array('errors' => $errors));
     }
 
     exit(1);
 }
 
-if (!isset($_POST) || empty($_POST)) {
+$postData = json_decode(file_get_contents('php://input'), true);
+
+if (!is_array($postData) || empty($postData)) {
     header('HTTP/1.0 404 Not Found', null, 404);
 
     exit(1);
@@ -121,13 +129,14 @@ if (!isset($_POST) || empty($_POST)) {
 call_user_func(function (array $request) {
     header('Content-Type: application/json');
 
-    $nombre    = isset($request['nombre']) ? $request['nombre'] : '';
-    $email     = isset($request['email']) ? $request['email'] : '';
-    $workshops = array_filter(isset($request['workshops']) ? $request['workshops'] : [], function ($workshop) {
+    $nombre     = isset($request['nombre']) ? $request['nombre'] : '';
+    $email      = isset($request['email']) ? $request['email'] : '';
+    $workshops  = array_filter(isset($request['workshops']) ? $request['workshops'] : array(), function ($workshop) {
         return !empty($workshop) && is_scalar($workshop);
     });
+    $asistencia = isset($request['asistencia']) ? $request['asistencia'] : '';
 
-    $errors = [];
+    $errors = array();
 
     if (empty($nombre) || !is_string($nombre)) {
         array_push($errors, 'El nombre es inválido.');
@@ -145,7 +154,7 @@ call_user_func(function (array $request) {
         stopWithBadRequest($errors);
     }
 
-    $workshopsData = include __DIR__.'/workshops.php';
+    $workshopsData = include __DIR__.'/../workshops.php';
 
     # Obtengo los keys de los workshops para poder comparar
     # con los datos del $_POST
@@ -166,7 +175,7 @@ call_user_func(function (array $request) {
     }
 
     try {
-        $config = require(__DIR__.'/config.php');
+        $config = require(__DIR__.'/../config.php');
 
         # Buscamos el usuario en la lista de asistentes a la conferencia
         if (null === findAttendee($config['eventbrite']['token'], $config['eventbrite']['event_id'], $email)) {
@@ -178,23 +187,23 @@ call_user_func(function (array $request) {
         $dbConfig = $config['db'];
 
         # Conexión PDO
-        $pdo = new PDO(strtr('mysql:dbname=__dbname;host=__host', [
+        $pdo = new PDO(strtr('mysql:dbname=__dbname;host=__host', array(
             '__dbname' => $dbConfig['database'],
             '__host'   => $dbConfig['host'],
-        ]), $dbConfig['user'], $dbConfig['password']);
+        )), $dbConfig['user'], $dbConfig['password']);
 
         verifyExistence($pdo, $email);
-        registerWorkshop($pdo, $nombre, $email, $workshops);
+        registerWorkshops($pdo, $nombre, $email, $workshops, $asistencia);
     } catch (PDOException $e) {
         error_log($e->getMessage(), E_USER_NOTICE);
-        stopWithBadRequest([
+        stopWithBadRequest(array(
             'Hubo un error con el procesamiento de los datos. Por favor, intentalo más tarde.',
             $e->getMessage()
-        ]);
+        ));
     } catch (LogicException $e) {
         error_log($e->getMessage(), E_USER_NOTICE);
-        stopWithBadRequest([$e->getMessage()]);
+        stopWithBadRequest(array($e->getMessage()));
     }
 
-    echo json_encode(['success' => true]);
-}, $_POST);
+    echo json_encode(array('success' => true));
+}, $postData);

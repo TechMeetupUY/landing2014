@@ -14,3 +14,40 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+
+.workshops {
+  form {
+    label, input, select {
+      text-align: left;
+    }
+
+    .error {
+      label {
+        color: red;
+      }
+    }
+
+    button[disabled] {
+      background: #EEE;
+      color: #AAA;
+    }
+
+    .message {
+      &.error {
+        color: red;
+      }
+    }
+  }
+}
+
+#agenda {
+  .row {
+    .omega {
+      background-color: #EEE;
+      border: solid 1px #CCC;
+
+      @include border-radius(4px, 4px);
+    }
+  }
+}
