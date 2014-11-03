@@ -110,14 +110,14 @@ function getWorkshops()
                     <fieldset>
                         <div class="sixteen columns">
                             <?php
-                            for ($i = 1; $i <= 3; $i++): ?>
+                            foreach(array('alta','media', 'baja') as $i => $prioridad): ?>
                                 <div class="five columns" ng-class="{error: wsForm.workshop<?= $i; ?>.$invalid && wsForm.$dirty}">
-                                    <label style="text-align: left;" for="workshop-dropdown-<?= $i; ?>">Workshop</label>
+                                    <label style="text-align: left; font-size: 1.2em;" for="workshop-dropdown-<?= $i; ?>">Prioridad <?=$prioridad?></label>
                                     <select ng-options="w.key as w.titulo for w in workshops" ng-model="model.workshops[<?= $i; ?>]" name="workshop<?= $i; ?>" id="workshop-dropdown-<?= $i; ?>" <?= 1 === $i ? 'required="required"' : '' ?> id="workshop<?= $i ?>">
                                         <option value="">---</option>
                                     </select>
                                 </div>
-                            <?php endfor; ?>
+                            <?php endforeach; ?>
                         </div>
                     </fieldset>
 
