@@ -40,3 +40,14 @@
     }
   }
 }
+
+#agenda {
+  .row {
+    .omega {
+      background-color: #EEE;
+      border: solid 1px #CCC;
+
+      @include border-radius(4px, 4px);
+    }
+  }
+}

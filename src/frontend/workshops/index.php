@@ -80,7 +80,7 @@ function getWorkshops()
             </div>
         </header>
 
-        <div class="container container-with-margins" style="top: 100px;" ng-app="meetupWorkshops">
+        <div class="container container-with-margins" style="top: 100px; padding-bottom: 100px;" ng-app="meetupWorkshops">
             <section class="sixteen columns workshops clearfix" ng-controller="FormCtrl" ng-init="workshops = <?= htmlspecialchars(json_encode(getWorkshops())) ?>">
 
                 <h2>Registrate en los workshops</h2>
@@ -135,10 +135,14 @@ function getWorkshops()
                     <p class="message" ng-repeat="message in messages" ng-class="{error: message.error}" ng-bind="message.text"></p>
 
                     <button type="submit" ng-disabled="wsForm.$invalid">Registrarme</button>
+
+                    <p><em>Puedes revisar la agenda a continuación.</em></p>
                 </form>
             </section>
         </div>
         <!--        </workshops>-->
+
+        <?php include(__DIR__.'/agenda.php'); ?>
 
         <div class="footer-wrapper">
             <footer>

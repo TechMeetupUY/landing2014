@@ -12,5 +12,8 @@ return array(
     'eventbrite' => array(
         'token'    => '1234567890abcdefg',
         'event_id' => '1234567890'
+    ),
+    'sched'      => array(
+        'api-key' => '1234567890abcdefghijklmnopqrst'
     )
 );
