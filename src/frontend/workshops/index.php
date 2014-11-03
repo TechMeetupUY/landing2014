@@ -142,7 +142,10 @@ function getWorkshops()
 
                     <p><strong style="font-size: 1.5em;">El registro no asegura tu participación en el workshop. Tendremos en cuenta tu criterio de preferencia para realizar la selección de los participantes. El Martes 11 te notificaremos los resultados de la selección.</strong></p>
 
-                    <button type="submit" ng-disabled="wsForm.$invalid">Registrarme</button>
+                    <button type="submit" ng-disabled="wsForm.$invalid || registrando">
+                        <span ng-if="registrando">Registrando...</span>
+                        <span ng-if="!registrando">Registrarme</span>
+                    </button>
 
                 </form>
             </section>
