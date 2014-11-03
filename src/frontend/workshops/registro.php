@@ -77,13 +77,14 @@ function findAttendee($token, $eventId, $email)
  */
 function registerWorkshops(PDO $pdo, $nombre, $email, array $workshops, $asistencia)
 {
-    foreach ($workshops as $workshop) {
-        $insertStmt = $pdo->prepare('INSERT INTO workshops (nombre, email, workshop, asiste_conferencia) VALUES (:nombre, :email, :workshop, :asiste_conferencia)');
+    foreach ($workshops as $prioridad => $workshop) {
+        $insertStmt = $pdo->prepare('INSERT INTO workshops (nombre, email, workshop, asiste_conferencia, prioridad) VALUES (:nombre, :email, :workshop, :asiste_conferencia, :prioridad)');
 
         $insertStmt->bindValue(':nombre', $nombre);
         $insertStmt->bindValue(':email', $email);
         $insertStmt->bindValue(':workshop', $workshop);
         $insertStmt->bindValue(':asiste_conferencia', $asistencia);
+        $insertStmt->bindValue(':prioridad', $prioridad, PDO::PARAM_INT);
 
         $insertStmt->execute();
     }
