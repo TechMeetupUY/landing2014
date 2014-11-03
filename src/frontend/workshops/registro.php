@@ -12,24 +12,26 @@
 function getAttendees($token, $eventId, $page = 1)
 {
     $result = file_get_contents(
-        sprintf('https://www.eventbriteapi.com/v3/events/%d/attendees/?', $eventId).http_build_query([
+        sprintf('https://www.eventbriteapi.com/v3/events/%d/attendees/?', $eventId).http_build_query(array(
             'token'  => $token, // Eventbrite's API token
             'status' => 'attending',
             'page'   => $page
-        ]),
+        )),
         false,
         stream_context_create(array(
             'http' => array(
                 'method' => "GET",
-                'header' => implode("\r\n", [
+                'header' => implode("\r\n", array(
                     'Content-Type: application/json',
                     'Accept: application/json',
-                ]),
+                )),
             )
         ))
     );
 
-    return json_decode($result, true)['attendees'];
+    $json = json_decode($result, true);
+
+    return $json['attendees'];
 }
 
 /**
@@ -105,12 +107,12 @@ function verifyExistence(PDO $pdo, $email)
     }
 }
 
-function stopWithBadRequest(array $errors = [])
+function stopWithBadRequest(array $errors = array())
 {
     header('HTTP/1.0 400 Bad Request', null, 400);
 
     if (!empty($errors)) {
-        echo json_encode(['errors' => $errors]);
+        echo json_encode(array('errors' => $errors));
     }
 
     exit(1);
@@ -129,12 +131,12 @@ call_user_func(function (array $request) {
 
     $nombre     = isset($request['nombre']) ? $request['nombre'] : '';
     $email      = isset($request['email']) ? $request['email'] : '';
-    $workshops  = array_filter(isset($request['workshops']) ? $request['workshops'] : [], function ($workshop) {
+    $workshops  = array_filter(isset($request['workshops']) ? $request['workshops'] : array(), function ($workshop) {
         return !empty($workshop) && is_scalar($workshop);
     });
     $asistencia = isset($request['asistencia']) ? $request['asistencia'] : '';
 
-    $errors = [];
+    $errors = array();
 
     if (empty($nombre) || !is_string($nombre)) {
         array_push($errors, 'El nombre es inválido.');
@@ -185,23 +187,23 @@ call_user_func(function (array $request) {
         $dbConfig = $config['db'];
 
         # Conexión PDO
-        $pdo = new PDO(strtr('mysql:dbname=__dbname;host=__host', [
+        $pdo = new PDO(strtr('mysql:dbname=__dbname;host=__host', array(
             '__dbname' => $dbConfig['database'],
             '__host'   => $dbConfig['host'],
-        ]), $dbConfig['user'], $dbConfig['password']);
+        )), $dbConfig['user'], $dbConfig['password']);
 
         verifyExistence($pdo, $email);
         registerWorkshops($pdo, $nombre, $email, $workshops, $asistencia);
     } catch (PDOException $e) {
         error_log($e->getMessage(), E_USER_NOTICE);
-        stopWithBadRequest([
+        stopWithBadRequest(array(
             'Hubo un error con el procesamiento de los datos. Por favor, intentalo más tarde.',
             $e->getMessage()
-        ]);
+        ));
     } catch (LogicException $e) {
         error_log($e->getMessage(), E_USER_NOTICE);
-        stopWithBadRequest([$e->getMessage()]);
+        stopWithBadRequest(array($e->getMessage()));
     }
 
-    echo json_encode(['success' => true]);
+    echo json_encode(array('success' => true));
 }, $postData);

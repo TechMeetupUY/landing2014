@@ -2,7 +2,7 @@
 
 function getWorkshops()
 {
-    $quantities = [];
+    $quantities = array();
 
     try {
         $config = require(__DIR__.'/../config.php');
@@ -10,10 +10,10 @@ function getWorkshops()
         $dbConfig = $config['db'];
 
         # Conexión PDO
-        $pdo = new PDO(strtr('mysql:dbname=__dbname;host=__host', [
+        $pdo = new PDO(strtr('mysql:dbname=__dbname;host=__host', array(
             '__dbname' => $dbConfig['database'],
             '__host'   => $dbConfig['host'],
-        ]), $dbConfig['user'], $dbConfig['password']);
+        )), $dbConfig['user'], $dbConfig['password']);
 
         $stmt = $pdo->prepare('SELECT workshop, COUNT(1) as quantity FROM workshops GROUP BY workshop');
         $stmt->execute();
@@ -29,10 +29,10 @@ function getWorkshops()
     return array_map(function ($workshop) use ($quantities) {
         $waitingList = isset($quantities[$workshop['key']]) && $quantities[$workshop['key']] >= $workshop['max'];
 
-        return [
+        return array(
             'key'    => $workshop['key'],
             'titulo' => $workshop['titulo'].($waitingList ? '  *** lista de espera ***' : '')
-        ];
+        );
     }, $workshops);
 }
 
