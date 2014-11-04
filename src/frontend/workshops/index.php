@@ -69,7 +69,7 @@ function getWorkshops()
 
             <div class="container">
                 <div class="header-menu sixteen columns clearfix">
-                    <a href="index.php" class="three columns alpha logo-container">
+                    <a href="../index.php" class="three columns alpha logo-container">
                         <img src="../assets/images/2014/landing/logo.png" alt="">
                     </a>
                     <ul class="thirteen columns omega">
