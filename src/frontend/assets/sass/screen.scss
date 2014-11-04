@@ -51,3 +51,39 @@
     }
   }
 }
+
+table.lista-interna {
+  border: none;
+  width: 100%;
+  font-size: 0.95em;
+  margin-bottom: 10px;
+
+  thead {
+    tr {
+      font-weight: bold;
+
+      &:last-of-type {
+        border-bottom: solid 1px #ccc;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        text-align: left;
+
+        &.workshop {
+          font-size: 0.9em;
+          background-color: #EEE;
+          border: solid 1px #DDD;
+          @include border-radius(4px, 4px);
+        }
+
+        &.center {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
