@@ -28,11 +28,11 @@
 	            <ul class="thirteen columns omega">
 	                <li><a class="scrollable" href="#sponsors"      >Sponsors</a></li>
 	                <li><a class="scrollable" href="#speakers"      >Oradores</a></li>
+	                <li><a class="scrollable" href="#agenda"     >Agenda</a></li>
 	                <li><a class="scrollable" href="#workshops"     >Workshops</a></li>
 	                <li><a class="scrollable" href="#organizadores" >Organiza</a></li>
 	                
 	                <li><a class="color-green" href="./v2013">v2013</a></li>
-	                <li><a class="color-green" href="./v2012">v2012</a></li>
 	                <li><a class="" href="eng.php">[en]</a></li>
 	                
 	            </ul>
