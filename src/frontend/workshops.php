@@ -162,7 +162,7 @@ Prioridades
 
 El objetivo principal del taller es que los participantes tengan la experiencia suficiente como para facilitar uno de estos talleres en sus propios proyectos.
 ',
-		'trainers' => '',
+		'trainers' => '<a href="https://twitter.com/MartinSalias">Martin Salias</a>',
 		'hora' => '16:00',
 		'reqs' => '',
         'key' => 'agile',
