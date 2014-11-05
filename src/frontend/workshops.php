@@ -125,7 +125,7 @@ Se asumen conocimientos generales de programación en un lenguaje como Java o Ru
                </ul>',
 		'hora' => '09:00',
         'key' => 'openstack',
-		'max' => 20
+		'max' => 40
 	),
 	array(
 		'img' => 'mysql.png',
@@ -135,7 +135,7 @@ Se asumen conocimientos generales de programación en un lenguaje como Java o Ru
 		'hora' => '14:00',
 		'reqs' => '',
         'key' => 'mysql',
-		'max' => 20
+		'max' => 40
 	),
 	array(
 		'img' => 'agile.png',
@@ -162,6 +162,6 @@ El objetivo principal del taller es que los participantes tengan la experiencia 
 		'hora' => '16:00',
 		'reqs' => '',
         'key' => 'agile',
-		'max' => 20
+		'max' => 30
 	),
 );
