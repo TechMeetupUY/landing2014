@@ -208,7 +208,13 @@ $sponsors =  array(
         'url' => '#',
         'img' => 'zillertal.png',
         'type' => 'blue'
-    )
+    ),
+    array(
+        'alt' => 'CobrosYa',
+        'url' => 'http://www.cobrosya.com',
+        'img' => 'cobrosya.png',
+        'type' => 'blue'
+    ),
 );  
 
 
