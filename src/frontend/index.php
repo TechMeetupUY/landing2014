@@ -195,7 +195,6 @@
 		    <section class="sixteen columns workshops clearfix">
 
 		        <h1>Agenda</h1>
-		        <h2>En breve te enterarás cómo podrás inscribirte. ¡SOLO <strong>30</strong> cupos para cada workshop!</h2>
 		        <a id="sched-embed" data-sched-sidebar="no" href="http://techmeetupuy2014.sched.org/">View the TechMeetupUY mobile app</a><script type="text/javascript" src="http://techmeetupuy2014.sched.org/js/embed.js"></script>
 
 			</section>
