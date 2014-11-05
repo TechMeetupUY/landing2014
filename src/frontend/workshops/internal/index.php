@@ -11,9 +11,9 @@ $data = call_user_func(function () {
         '__host'   => $dbConfig['host'],
     )), $dbConfig['user'], $dbConfig['password']);
 
-    $data = array('asistentes' => array(), 'cantidades' => array(), 'prioridades' => array());
+    $data = array('asistentes' => array(), 'cantidades' => array(), 'prioridades' => array(), 'conferencia' => array());
 
-    $stmt = $pdo->prepare('SELECT nombre, email, GROUP_CONCAT(workshop order by prioridad) as workshops from workshops GROUP BY email ORDER BY id');
+    $stmt = $pdo->prepare('SELECT nombre, email, GROUP_CONCAT(workshop order by prioridad) as workshops, asiste_conferencia from workshops GROUP BY email ORDER BY id');
     $stmt->execute();
 
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -37,6 +37,15 @@ $data = call_user_func(function () {
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach ($rows as $row) {
         $data['prioridades'][$row['nombre_prioridad']][] = $row;
+    }
+
+    $stmt = $pdo->prepare('SELECT asiste_conferencia, COUNT(DISTINCT email) AS cantidad FROM workshops GROUP BY asiste_conferencia ORDER BY cantidad DESC');
+
+    $stmt->execute();
+
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($rows as $row) {
+        $data['conferencia'][] = $row;
     }
 
     return $data;
@@ -97,12 +106,13 @@ $data = call_user_func(function () {
                             <tr>
                                 <th>Nombre</th>
                                 <th>Email</th>
+                                <th>Conferencia</th>
                                 <th colspan="3">Workshops</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <td colspan="5">Total: <?=count($data['asistentes'])?></td>
+                                <td colspan="6">Total: <?=count($data['asistentes'])?></td>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -110,6 +120,7 @@ $data = call_user_func(function () {
                                 <tr>
                                     <td><?= $asistente['nombre'] ?></td>
                                     <td><?= $asistente['email'] ?></td>
+                                    <td class="center"><?= $asistente['asiste_conferencia'] ?></td>
                                     <?php foreach ($asistente['workshops'] as $workshop): ?>
                                         <td class="workshop"><?= $workshop ?></td>
                                     <?php endforeach; ?>
@@ -122,7 +133,7 @@ $data = call_user_func(function () {
             </div>
 
             <div class="container container-with-margins" style="top: 100px; padding-bottom: 100px;">
-                <section class="sixteen columns clearfix workshops">
+                <section class="eight columns clearfix workshops">
                     <h2>Cantidad inscriptos por workshop</h2>
 
                     <table class="lista-interna">
@@ -143,35 +154,58 @@ $data = call_user_func(function () {
                     </table>
 
                 </section>
-            </div>
 
-            <div class="container container-with-margins" style="top: 100px; padding-bottom: 100px;">
-                <section class="sixteen columns clearfix workshops">
-                    <h2>Cantidad inscriptos por workshop agrupados por prioridad</h2>
+                <section class="eight columns clearfix workshops">
+                    <h2>Cantidad asistencias a la conferencia</h2>
 
-                    <?php foreach ($data['prioridades'] as $prioridad => $workshops): ?>
                     <table class="lista-interna">
                         <thead>
                             <tr>
-                                <th colspan="2">Prioridad <?= $prioridad ?></th>
-                            </tr>
-                            <tr>
-                                <th>Workshop</th>
+                                <th>Va a la conferencia</th>
                                 <th>Cantidad</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($workshops as $workshop): ?>
+                            <?php foreach ($data['conferencia'] as $conf): ?>
                                 <tr>
-                                    <td><?= $workshop['workshop'] ?></td>
-                                    <td class="center"><?= $workshop['inscriptos'] ?></td>
+                                    <td><?= $conf['asiste_conferencia'] ?></td>
+                                    <td class="center"><?= $conf['cantidad'] ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
-                        <?php endforeach; ?>
                     </table>
 
                 </section>
+
+            </div>
+
+            <div class="container container-with-margins" style="top: 100px; padding-bottom: 100px;">
+                <h2 style="text-align: center;">Cantidad inscriptos por workshop agrupados por prioridad</h2>
+
+                <?php foreach ($data['prioridades'] as $prioridad => $workshops): ?>
+                    <section class="eight columns workshops">
+                        <table class="lista-interna">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Prioridad <?= $prioridad ?></th>
+                                </tr>
+                                <tr>
+                                    <th>Workshop</th>
+                                    <th>Cantidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($workshops as $workshop): ?>
+                                    <tr>
+                                        <td><?= $workshop['workshop'] ?></td>
+                                        <td class="center"><?= $workshop['inscriptos'] ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </section>
+                <?php endforeach; ?>
+
             </div>
         </div>
 
