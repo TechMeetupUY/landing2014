@@ -100,6 +100,11 @@ $data = call_user_func(function () {
                                 <th colspan="3">Workshops</th>
                             </tr>
                         </thead>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">Total: <?=count($data['asistentes'])?></td>
+                            </tr>
+                        </tfoot>
                         <tbody>
                             <?php foreach ($data['asistentes'] as $asistente): ?>
                                 <tr>

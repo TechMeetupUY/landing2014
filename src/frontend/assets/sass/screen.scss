@@ -68,6 +68,18 @@ table.lista-interna {
     }
   }
 
+  tfoot {
+    tr {
+      &:first-of-type {
+        border-top: solid 1px #ccc;
+      }
+
+      td {
+        font-weight: bold;
+      }
+    }
+  }
+
   tbody {
     tr {
       td {
