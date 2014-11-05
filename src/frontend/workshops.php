@@ -98,11 +98,15 @@ Todas estas herramientas, además de consejos y trucos aprendidos a lo largo de 
 	),
 	array(
 		'img' => 'scala.png',
-		'titulo' => 'Scala',
-		'descripcion' => 'Introducción a las herramientas específicas que usaremos para resolver dos ejercicios realistas.
+		'titulo' => 'Proceso de datos con Scala',
+    'descripcion' => 'La información es la nueva materia prima; las tecnologías con futuro son las que nos permiten explorar y procesar información de forma ágil.
 
-Los ejercicios son tareas específicas con múltiples modos de solución; extracción de información de un archivo de texto no estructurado y extracción de información de archivos csv con información financiera. ',
-		'trainers' => '<a href="https://twitter.com/fedesilva">Federico Silva</a> by <a href="http://www.meetup.com/Scala-Meetup-MVD/">Scala Meetup</a>',
+    Se dice que <b>Big Data</b> es el killer application de la programación funcional; te proponemos explorar las herramientas que Scala provee para explorar información de forma concisa y eficiente.
+
+En este workshop aprenderás a usar las herramientas básicas que el lenguaje provee para el manejo, filtrado y tranformación de información mediante dos ejercicios de creciente complejidad. La ejecución de estos ejercicios te habilitará para empezar a explorar el ecosistema, sin importar la escala.
+
+Si bién solo manejaremos la standard library, las herramientas de proceso a gran escala que están basadas en el lenguaje reflejan la orientación a la programación funcional mediante librerías de combinadores muy similares a las que usaremos.',
+    'trainers' => '<a href="https://twitter.com/fedesilva">Federico Silva</a> | <a href="https://twitter.com/gerferra">Germ&aacuten Ferrari</a> | <a href="https://twitter.com/gpolito">Guillermo Polito</a> | <a href="https://twitter.com/tomzalt">Tom&aacute;s Lázaro</a> by <a href="http://www.meetup.com/Scala-Meetup-MVD/">Scala Meetup</a>',
 		'reqs' => '<ul><li>Java >= 1.6 (jdk)</li>
 <li>Editor de texto y IDE </li>
 <li>sbt</li>
