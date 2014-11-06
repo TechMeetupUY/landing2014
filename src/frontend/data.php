@@ -346,7 +346,7 @@ $speakers =  array(
         'name'      => 'Max Patissier',
         'title'     => 'Cloud-stat',
         'picture'   => 'max.jpg',
-        'twitter'   => '',
+        'twitter'   => 'max_patissier',
         'linkedin'  => 'https://www.linkedin.com/pub/max-patissier/1/a17/11a'
     ),
      array(
