@@ -46,12 +46,6 @@ $sponsors =  array(
         'type' => 'green'
     ),
     array(
-        'alt' => 'Microsoft',
-        'url' => 'http://www.microsoft.com/',
-        'img' => 'microsoft.png',
-        'type' => 'green'
-    ),
-    array(
         'alt' => 'TopTier Labs',
         'url' => 'http://www.toptierlabs.com/',
         'img' => 'toptier.png',
