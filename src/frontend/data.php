@@ -322,7 +322,7 @@ $speakers =  array(
         'name'      => 'Luis Vinay',
         'title'     => 'Co-Fundador de <a href="http://flugel.it" target="_blank">flugel.it</a>',
         'picture'   => 'luisvinay.jpg',
-        'twitter'   => '',
+        'twitter'   => 'LuisVinay',
         'linkedin'  => 'https://www.linkedin.com/in/luisvinay',
      ),
      array(
