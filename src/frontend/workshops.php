@@ -46,7 +46,7 @@ terminar creando tu primer app.',
 		Además los participantes (con la ayuda de los docentes) deberán programar un juego usando la placa Arduino. Realizaremos una competencia final usando el juego desarrollado por los participantes.',
 		'trainers' => 'by <a href="http://www.mvdrobotics.com/">MVDRobotics</a>',
 		'hora' => '16:00',
-		'reqs' => 'Nosotros nos encargamos! :) ',
+		'reqs' => 'Se requiere equipo propio, Linux, Mac o Windows con el IDE de Arduino instalado. El material adicional se entregará en el taller.',
         'key' => 'arduino',
 		'max' => 40
 	),
