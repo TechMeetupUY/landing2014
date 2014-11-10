@@ -1,5 +1,8 @@
 <?php
 
+# Temporal mientras se construye formulario de chequeo de inscripción
+return;
+
 function getWorkshops()
 {
     $quantities = array();

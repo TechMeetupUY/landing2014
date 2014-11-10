@@ -209,7 +209,7 @@
 
 	        <h1>Workshops</h1>
 	        <h3>Estos son los workshops que se realizarán el Viernes 14 de noviembre. <br>Serán sesiones técnicas de <strong>2</strong> horas,<br/>donde verás lo último en cada una de las disciplinas.</h3>
-	        <div><a href="./workshops/" target="_blank" class="btn btn-blue-inverse">Inscribite acá</a></div>
+			<div><em>La inscripción ya está cerrada.</em></div>
 
 			<br>
 
