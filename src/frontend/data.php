@@ -288,7 +288,7 @@ $speakers =  array(
         'linkedin' 	=> 'http://uy.linkedin.com/pub/victoria-alonsoperez/18/91/a43'
     ),
     array(
-    	'flag' 		=> 'uy',
+    	'flag' 		=> 'mx',
     	'name' 		=> 'Martin S. Garcia',
     	'title' 	=> 'Postgraduate Student of Unmanned Vehicle Systems Design en University of Southampton.',
     	'picture'   => 'martin.jpg',
