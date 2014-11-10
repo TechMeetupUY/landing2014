@@ -46,12 +46,6 @@ $sponsors =  array(
         'type' => 'green'
     ),
     array(
-        'alt' => 'Microsoft',
-        'url' => 'http://www.microsoft.com/',
-        'img' => 'microsoft.png',
-        'type' => 'green'
-    ),
-    array(
         'alt' => 'TopTier Labs',
         'url' => 'http://www.toptierlabs.com/',
         'img' => 'toptier.png',
@@ -73,6 +67,12 @@ $sponsors =  array(
         'alt' => 'Rootstrap',
         'url' => 'http://rootstrap.it/',
         'img' => 'rootstrap.png',
+        'type' => 'green'
+    ),
+    array(
+        'alt' => 'Altimetrik',
+        'url' => 'http://www.altimetrik.com/',
+        'img' => 'altimetrik.png',
         'type' => 'green'
     ),
     array(
@@ -180,6 +180,12 @@ $sponsors =  array(
         'type' => 'blue'
     ),
     array(
+        'alt' => 'Amaretto',
+        'url' => 'http://amaretto.com.uy/',
+        'img' => 'amaretto.jpg',
+        'type' => 'blue'
+    ),
+    array(
         'alt' => 'Pepsi',
         'url' => '#',
         'img' => 'pepsi.png',
@@ -190,7 +196,13 @@ $sponsors =  array(
         'url' => '#',
         'img' => 'zillertal.png',
         'type' => 'blue'
-    )
+    ),
+    array(
+        'alt' => 'CobrosYa',
+        'url' => 'http://www.cobrosya.com',
+        'img' => 'cobrosya.png',
+        'type' => 'blue'
+    ),
 );  
 
 
@@ -245,6 +257,11 @@ $apoyan =  array(
         'alt' => 'Escuela de Sistemas y Tecnologías BIOS',
         'url' => 'http://www.biosportal.com/sistemas_tecnologias/',
         'img' => 'bios.jpg'
+    ),
+    array(
+        'alt' => 'Cursos de Programacion en Tecnologias de la Informacion.',
+        'url' => 'http://www.educacionit.com/',
+        'img' => 'educacion_it.jpg'
     )
 );  
 
@@ -299,24 +316,39 @@ $speakers =  array(
         'name'      => 'Luis Vinay',
         'title'     => 'Co-Fundador de <a href="http://flugel.it" target="_blank">flugel.it</a>',
         'picture'   => 'luisvinay.jpg',
-        'twitter'   => '',
+        'twitter'   => 'LuisVinay',
         'linkedin'  => 'https://www.linkedin.com/in/luisvinay',
      ),
      array(
         'flag'      => 'uy',
         'name'      => 'Gabriel Ledesma',
-        'title'     => '',
+        'title'     => 'Agile Coach de WyeWorks',
         'picture'   => 'gabrielledesma.jpeg',
-        'twitter'   => 'galafed',
+        'twitter'   => 'gafaled',
         'linkedin'  => 'http://uy.linkedin.com/in/gabrielledesma',
      ),
      array(
-        'flag'      => '',
-        'name'      => 'Próximamente...',
-        'title'     => 'más anuncios.',
-        'picture'   => '',
-        'twitter'   => '',
-        'linkedin'  => ''
+        'flag'      => 'uy',
+        'name'      => 'Gabriel Chertok',
+        'title'     => 'COO @ INGSW / Co Organizador de JSConfUY, INGSW ',
+        'picture'   => 'gabriel.jpg',
+        'twitter'   => 'iamcherta',
+        'linkedin'  => 'http://uy.linkedin.com/in/cherta',
+     ),
+     array(
+        'flag'      => 'uy',
+        'name'      => 'Max Patissier',
+        'title'     => 'Cloud-stat',
+        'picture'   => 'max.jpg',
+        'twitter'   => 'max_patissier',
+        'linkedin'  => 'https://www.linkedin.com/pub/max-patissier/1/a17/11a'
     ),
-
+     array(
+        'flag'      => 'uy',
+        'name'      => 'Maximiliano Perez',
+        'title'     => 'Socialab',
+        'picture'   => 'maxi.jpeg',
+        'twitter'   => 'Perez_Maxi',
+        'linkedin'  => 'https://uy.linkedin.com/in/maximilianoperez'
+    ),
 );  

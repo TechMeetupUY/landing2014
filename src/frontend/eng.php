@@ -155,36 +155,47 @@
 	<div class="yellow-wrapper">
 		<div class="container container-with-margin" id="compra">
 		    <section class="sixteen columns compra clearfix">
-
-		        <h1>Buy Your ticket</h1>
-		        <p>Book your place at the 2014 TechMeetup now!</p>
+				
+		        <h1 style="color: black;">Buy Your ticket</h1>
+		        <h3 style="color: black;">Book your place at the 2014 TechMeetup now!</h3>
 		        
 				<br>
 
-				<div style="width:100%; text-align:left;height:300px" >
-					
-					<iframe style="position: relative!important;" src="//eventbrite.com/tickets-external?eid=12222121695&ref=etckt" 
-						frameborder="0" 
-						height="247" 
-						width="100%" 
-						vspace="0" 
-						hspace="0" 
-						marginheight="5" 
-						marginwidth="5" 
-						scrolling="auto" 
-						allowtransparency="true" >
-					</iframe>
-
+				<div class="eight columns alpha buy-with">
+					<a href="http://www.eventbrite.com/e/registro-techmeetup-12222121695?aff=eorg" target="_blank">
+						<img src="/assets/images/2014/landing/btn-paypal.png" alt="">
+					</a>
 				</div>
 
-				<div style="font-size:15px; padding:5px 0 5px; margin:2px; width:100%; text-align:center;" >
-					<a style="color:black; text-decoration:none;" target="_blank" href="http://www.eventbrite.com/r/etckt">Online ticket sale</a> <span style="color:black;">via</span> <a style="color:black; text-decoration:none;font-weight:bold;" target="_blank" href="http://www.eventbrite.com?ref=etckt">Eventbrite</a>
+				<div class="eight columns omega buy-with">
+					<a href="http://bit.ly/1sQatvY" target="_blank">
+						<img src="/assets/images/2014/landing/btn-redpagos.png" alt="">
+					</a>
 				</div>
 
-				<br>
+				<div class="clearfix"></div>
+
+				<div style="font-size:16px; padding: 20px 0; margin:30px 0 0 0; width:100%; text-align:center;" >
+					<a style="color:black; text-decoration:none;" target="_blank" href="http://www.eventbrite.com/e/registro-techmeetup-12222121695?aff=eorg">Online ticket sale</a> <span style="color:black;">via</span> <a style="color:black; text-decoration:none;font-weight:bold;" target="_blank" href="http://www.eventbrite.com/e/registro-techmeetup-12222121695?aff=eorg">Eventbrite</a>
+				</div>
 
 		    </section>
 		</div>
+	</div>
+
+
+
+	<div class="white-wrapper">
+
+		<div class="container container-with-margin" id="workshops" style="position: initial;">
+		    <section class="sixteen columns workshops clearfix">
+
+		        <h1>Schedule</h1>
+		        <a id="sched-embed" data-sched-sidebar="no" href="http://techmeetupuy2014.sched.org/">View the TechMeetupUY mobile app</a><script type="text/javascript" src="http://techmeetupuy2014.sched.org/js/embed.js"></script>
+
+			</section>
+		</div>
+		
 	</div>
 
 

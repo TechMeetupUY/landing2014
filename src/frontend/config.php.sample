@@ -1,0 +1,19 @@
+<?php
+
+# Archivo de configuración para base de datos y conexión con Eventbrite
+
+return array(
+    'db'         => array(
+        'host'     => 'localhost',
+        'user'     => 'user',
+        'password' => 'password',
+        'database' => 'workshops'
+    ),
+    'eventbrite' => array(
+        'token'    => '1234567890abcdefg',
+        'event_id' => '1234567890'
+    ),
+    'sched'      => array(
+        'api-key' => '1234567890abcdefghijklmnopqrst'
+    )
+);

@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Sección interna"
+AuthUserFile /home/meetupuy/landing2014/.htpasswd
+Require valid-user

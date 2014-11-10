@@ -28,11 +28,11 @@
 	            <ul class="thirteen columns omega">
 	                <li><a class="scrollable" href="#sponsors"      >Sponsors</a></li>
 	                <li><a class="scrollable" href="#speakers"      >Oradores</a></li>
+	                <li><a class="scrollable" href="#agenda"     >Agenda</a></li>
 	                <li><a class="scrollable" href="#workshops"     >Workshops</a></li>
 	                <li><a class="scrollable" href="#organizadores" >Organiza</a></li>
 	                
 	                <li><a class="color-green" href="./v2013">v2013</a></li>
-	                <li><a class="color-green" href="./v2012">v2012</a></li>
 	                <li><a class="" href="eng.php">[en]</a></li>
 	                
 	            </ul>
@@ -162,32 +162,25 @@
 		<div class="container container-with-margin" id="compra">
 		    <section class="sixteen columns compra clearfix">
 
-		        <h1>Comprá tu Entrada</h1>
-		        <p>Reservá tu lugar en la TechMeetup 2014 ahora!</p>
+		        <h1 style="color: black;">Comprá tu Entrada y reservá tu lugar</h1>
+		        <h1 style="color: black;">U$S 25.00</h1>
 		        
-				<br>
-
-				<div style="width:100%; text-align:left;height:300px" >
-					
-					<iframe style="position: relative!important;" src="//eventbrite.com/tickets-external?eid=12222121695&ref=etckt" 
-						frameborder="0" 
-						height="247" 
-						width="100%" 
-						vspace="0" 
-						hspace="0" 
-						marginheight="5" 
-						marginwidth="5" 
-						scrolling="auto" 
-						allowtransparency="true" >
-					</iframe>
-
+				<div class="eight columns alpha buy-with">
+					<a href="http://www.eventbrite.com/e/registro-techmeetup-12222121695?aff=eorg" target="_blank">
+						<img src="/assets/images/2014/landing/btn-paypal.png" alt="">
+					</a>
+				</div>
+				<div class="eight columns omega buy-with">
+					<a href="http://bit.ly/1sQatvY" target="_blank">
+						<img src="/assets/images/2014/landing/btn-redpagos.png" alt="">
+					</a>
 				</div>
 
-				<div style="font-size:15px; padding:5px 0 5px; margin:2px; width:100%; text-align:center;" >
-					<a style="color:black; text-decoration:none;" target="_blank" href="http://bit.ly/techmeetup14-beca">Si sos estudiante y querés solicitar una beca hace click <strong>aquí</strong></a> 
-				</div>
+				<div class="clearfix"></div>
 
-				<br>
+				<div style="font-size:16px; padding: 20px 0; margin:30px 0 0 0; width:100%; text-align:center;" >
+					<a style="color:black; text-decoration:none;" target="_blank" href="http://bit.ly/techmeetup14-beca"><h4 style="color:black;">Si sos estudiante y querés solicitar una beca hace click <strong>aquí</strong></h4></a> 
+				</div>
 
 		    </section>
 		</div>
@@ -197,18 +190,32 @@
 
 
 	<div class="white-wrapper">
+
+		<div class="container container-with-margin" id="agenda" style="position: initial;">
+		    <section class="sixteen columns workshops clearfix">
+
+		        <h1>Agenda</h1>
+		        <a id="sched-embed" data-sched-sidebar="no" href="http://techmeetupuy2014.sched.org/">View the TechMeetupUY mobile app</a><script type="text/javascript" src="http://techmeetupuy2014.sched.org/js/embed.js"></script>
+
+			</section>
+		</div>
+		
+	</div>
+
+
+	<div class="white-wrapper">
 	<div class="container container-with-margin" id="workshops">
 	    <section class="sixteen columns workshops clearfix">
 
 	        <h1>Workshops</h1>
 	        <h3>Estos son los workshops que se realizarán el Viernes 14 de noviembre. <br>Serán sesiones técnicas de <strong>2</strong> horas,<br/>donde verás lo último en cada una de las disciplinas.</h3>
-			<h4>En breve te enterarás cómo podrás inscribirte. ¡SOLO <strong>30 cupos</strong> para cada workshop!</h4>
+	        <div><a href="./workshops/" target="_blank" class="btn btn-blue-inverse">Inscribite acá</a></div>
 
 			<br>
 
 
 <?php
-include('workshops.php');
+$workshops = include('workshops.php');
 $max = count($workshops);
 $i = 0;
 do{
@@ -236,7 +243,7 @@ do{
 							</p>
 							<?php } ?>
 							<ul class="inline unstyled">
-								<li><i class="icon-link"></i> <?=$workshops[$i]['trainers']; ?></li>
+								<li><i class="fa fa-link"></i> <?=$workshops[$i]['trainers']; ?></li>
 							</ul>
 							
 						</div>
@@ -268,7 +275,7 @@ do{
 							</p>
 							<?php } ?>
 							<ul class="inline unstyled">
-								<li><i class="icon-link"></i> <?=$workshops[$i+1]['trainers']; ?></li>
+								<li><i class="fa fa-link"></i> <?=$workshops[$i+1]['trainers']; ?></li>
 							</ul>
 
 						</div>
@@ -281,7 +288,9 @@ do{
 <?php
 	$i = $i+2;
 } while ($i<$max);
-?>			
+?>
+
+
 	    </section>
 	</div>
 	</div>
@@ -293,12 +302,8 @@ do{
 	    <section class="sixteen columns sponsors clearfix">
 
 	        <h1 >Sponsors</h1>
-	        <p>TechMeetupUY es posible gracias a nuestros increíbles sponsors. Estamos muy agradecidos a cada una de las empresas que han apoyado y ayudado a hacer esta conferencia posible. Únete a nosotros y potencia la comunidad IT de Uruguay.</p>
-	            <h2><a id="sponsors-pdf" href="docs/tech.meetup.uy.sponsors.v2014.pdf" target="_blank">Descarga el documento con los paquetes de apoyo</a></h2>
-	            <p>Estamos abiertos a otras formas de apoyo, envíanos tu idea a <a href="mailto:info@meetup.uy">info@meetup.uy</a></p>
-
+	        <p>TechMeetupUY es posible gracias a nuestros increíbles sponsors. Estamos muy agradecidos a cada una de las empresas que han apoyado y ayudado a hacer esta conferencia posible.</p>
 	        <h1>Apoyan</h1>
-
 	        <div class="center clearfix">
             <?php 
             $i = 1;

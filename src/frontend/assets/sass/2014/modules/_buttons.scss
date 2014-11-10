@@ -53,6 +53,16 @@
         }
     }
 
+    &.btn-blue-inverse {
+      border: 1px solid $color_blue;
+      background: $color_blue;
+      color: white;
+      &:hover {
+        background: white;
+        color: $color_blue;
+      }
+    }
+
     &.btn-green{
         color: $color_green!important;
         border: 1px solid $color_green;

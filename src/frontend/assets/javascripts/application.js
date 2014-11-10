@@ -22,7 +22,7 @@ var tm = function($){
 			});
 		},
 
-		initialize : function(){
+        initialize: function () {
 			app.prepareVideo();
 			app.handleScrollTo();
 		}

@@ -5,10 +5,11 @@
 		'titulo' => '',
 		'descripcion' => '',
 		'trainers' => '',
-		'reqs' => ''
+		'reqs' => '',
+        'key' => ''
 	),
 */
-$workshops = array(
+return array(
 	array(
 		'img' => 'mobile_testing.png',
 		'titulo' => 'Los nuevos desafíos en Mobile Testing',
@@ -17,8 +18,11 @@ $workshops = array(
 ¿Cuales son los nuevos desafíos? ¿Qué necesitamos aprender en estas plataformas?
 ¿Qué herramientas hay disponibles? ¿Qué pasa con la usabilidad, cómo la probamos?
 Estas y otras preguntas son las que estaremos en este workshop mostrando cómo las abordamos en Abstracta, compartiendo nuestras experiencias e investigación al respecto.',
-		'trainers' => 'by Abstracta',
-		'reqs' => 'Un smart device cualquiera.'
+		'trainers' => 'Fabian Baptista | Matías Reina',
+		'hora' => '14:00',
+		'reqs' => 'Un smart device cualquiera.',
+        'key' => 'mobile_testing',
+		'max' => 40
 	),
 	array(
 		'img' => 'ios.png',
@@ -29,7 +33,10 @@ No es necesario que sepas de Objective-C ni que conozcas cómo funciona el Xcode
 En el workshop iremos paso a paso, no sólo para aprender, sino también para 
 terminar creando tu primer app.',
 		'trainers' => 'Nicolás Alliaume, Diego Mazzone by <a href="http://www.meetup.com/applemvd/">AppleMVD meetup</a>',
-		'reqs' => 'Es necesario traer una Mac, o juntarse con un compañero que tenga una, con el Xcode Instalado (versión 5.1.1 o superior). No es necesario tener conocimientos de Objective-C o C, pero sí de programación orientada a objetos.'
+		'hora' => '14:00',
+		'reqs' => 'Es necesario traer una Mac, o juntarse con un compañero que tenga una, con el Xcode Instalado (versión 5.1.1 o superior). No es necesario tener conocimientos de Objective-C o C, pero sí de programación orientada a objetos.',
+        'key' => 'ios',
+		'max' => 40
 	),
 	array(
 		'img' => 'arduino.png',
@@ -38,7 +45,10 @@ terminar creando tu primer app.',
 
 		Además los participantes (con la ayuda de los docentes) deberán programar un juego usando la placa Arduino. Realizaremos una competencia final usando el juego desarrollado por los participantes.',
 		'trainers' => 'by <a href="http://www.mvdrobotics.com/">MVDRobotics</a>',
-		'reqs' => 'Nosotros nos encargamos! :) '
+		'hora' => '16:00',
+		'reqs' => 'Se requiere equipo propio, Linux, Mac o Windows con el IDE de Arduino instalado. El material adicional se entregará en el taller.',
+        'key' => 'arduino',
+		'max' => 40
 	),
 	array(
 		'img' => 'nodejs.png',
@@ -50,8 +60,11 @@ terminar creando tu primer app.',
 <li>Nodejs API y uso de módulos. Uso de Http cliente/servidor.</li>
 <li>Crear un servidor con API en JSON.</li></ul>',
 		'trainers' => 'Martin Prunell, Pablo Ricco, Luis Cal y Pablo de Juan by <a href="http://www.meetup.com/mvd-js/">MVDjs meetup</a></li>',
+		'hora' => '16:00',
 		'reqs' => '<ul><li>Nociones elementales de programación y de JavaScript. El taller será de enfoque netamente práctico orientado a principiantes en NodeJS.
-		<li>Se utilizará un programa de NodeJS para el taller y se requiere equipo propio, Linux, Mac o Windows. El material adicional se entregará en el taller.</li></ul>'
+		<li>Se utilizará un programa de NodeJS para el taller y se requiere equipo propio, Linux, Mac o Windows. El material adicional se entregará en el taller.</li></ul>',
+        'key' => 'nodejs',
+		'max' => 40
 	),
 	array(
 		'img' => 'dev_toolbox.png',
@@ -66,22 +79,34 @@ En esta charla introduciremos y exploraremos las herramientas que marcan una rea
 
 Todas estas herramientas, además de consejos y trucos aprendidos a lo largo de años de experiencia harán de esta charla muy interesante para desarrolladores de diversos niveles.',
 		'trainers' => '<a href="https://twitter.com/pgodel">Pablo Godel</a> by <a href="http://phpmvd.uy">PHPmvd meetup</a>',
-		'reqs' => ''
+		'hora' => '09:00',
+		'reqs' => '',
+        'key' => 'dev_toolbox',
+		'max' => 40
 	),
 	array(
 		'img' => 'golang.png',
-		'titulo' => 'Programación concurrente en GO',
-		'descripcion' => '... próximamente ...',
-		'trainers' => '<a href="http://fernandoipar.com/">Fernando Ipar</a>',
-		'reqs' => ''
+		'titulo' => 'Programación concurrente en Go',
+		'descripcion' => 'Introducción a las características de Go que facilitan la escritura de programas concurrentes.
+
+        No es un taller introductorio al lenguaje, pero cualquiera con algo de experiencia en un lenguaje imperativo estará en condiciones de seguir los ejemplos.',
+		'trainers' => '<a href="http://fernandoipar.com/">Fernando Ipar</a> | <a href="http://twitter.com/GustavoKristic">Gustavo Kristic</a>',
+		'hora' => '11:00',
+		'reqs' => '<ul><li>Editor de texto</li><li>Instalación de Go</li></ul>',
+        'key' => 'golang',
+		'max' => 40
 	),
 	array(
 		'img' => 'scala.png',
-		'titulo' => 'Scala',
-		'descripcion' => 'Introducción a las herramientas específicas que usaremos para resolver dos ejercicios realistas.
+		'titulo' => 'Proceso de datos con Scala',
+    'descripcion' => 'La información es la nueva materia prima; las tecnologías con futuro son las que nos permiten explorar y procesar información de forma ágil.
 
-Los ejercicios son tareas específicas con múltiples modos de solución; extracción de información de un archivo de texto no estructurado y extracción de información de archivos csv con información financiera. ',
-		'trainers' => '<a href="https://twitter.com/fedesilva">Federico Silva</a> by <a href="http://www.meetup.com/Scala-Meetup-MVD/">Scala Meetup</a>',
+    Se dice que <b>Big Data</b> es el killer application de la programación funcional; te proponemos explorar las herramientas que Scala provee para explorar información de forma concisa y eficiente.
+
+En este workshop aprenderás a usar las herramientas básicas que el lenguaje provee para el manejo, filtrado y tranformación de información mediante dos ejercicios de creciente complejidad. La ejecución de estos ejercicios te habilitará para empezar a explorar el ecosistema, sin importar la escala.
+
+Si bién solo manejaremos la standard library, las herramientas de proceso a gran escala que están basadas en el lenguaje reflejan la orientación a la programación funcional mediante librerías de combinadores muy similares a las que usaremos.',
+    'trainers' => '<a href="https://twitter.com/fedesilva">Federico Silva</a> | <a href="https://twitter.com/gerferra">Germ&aacuten Ferrari</a> | <a href="https://twitter.com/gpolito">Guillermo Polito</a> | <a href="https://twitter.com/tomzalt">Tom&aacute;s Lázaro</a> by <a href="http://www.meetup.com/Scala-Meetup-MVD/">Scala Meetup</a>',
 		'reqs' => '<ul><li>Java >= 1.6 (jdk)</li>
 <li>Editor de texto y IDE </li>
 <li>sbt</li>
@@ -89,6 +114,9 @@ Los ejercicios son tareas específicas con múltiples modos de solución; extrac
 Instrucciones se publicarán en la web una semana antes.
 
 Se asumen conocimientos generales de programación en un lenguaje como Java o Ruby.',
+		'hora' => '11:00',
+        'key' => 'scala',
+		'max' => 40
 	),
 	array(
 		'img' => 'openstack.png',
@@ -99,13 +127,19 @@ Se asumen conocimientos generales de programación en un lenguaje como Java o Ru
     'reqs' => '<ul><li>Laptop con WiFi</li>
                    <li>Cliente ssh instaldo</li>
                </ul>',
+		'hora' => '09:00',
+        'key' => 'openstack',
+		'max' => 40
 	),
 	array(
 		'img' => 'mysql.png',
 		'titulo' => 'Big Data Analytics: cálculos al estilo map-reduce en MySQL con Shard Query.',
-		'descripcion' => '... próximamente ...',
+		'descripcion' => 'Introducción a Shard Query, un motor open source de ejecución de consultas masivamente paralelas para MySQL, con énfasis en la solución de algunos problemas que típicamente se manejan con implementaciones de Map Reduce.',
 		'trainers' => 'Agustín Gallego, <a href="http://fernandoipar.com/">Fernando Ipar</a> by <a href="http://www.meetup.com/The-Montevideo-MySQL-Meetup-Group/">Mysql Meetup</a>',
-		'reqs' => ''
+		'hora' => '14:00',
+		'reqs' => '',
+        'key' => 'mysql',
+		'max' => 40
 	),
 	array(
 		'img' => 'agile.png',
@@ -128,8 +162,10 @@ Prioridades
 
 El objetivo principal del taller es que los participantes tengan la experiencia suficiente como para facilitar uno de estos talleres en sus propios proyectos.
 ',
-		'trainers' => '',
-		'reqs' => ''
+		'trainers' => '<a href="https://twitter.com/MartinSalias">Martin Salias</a>',
+		'hora' => '16:00',
+		'reqs' => '',
+        'key' => 'agile',
+		'max' => 30
 	),
 );
-?>
