@@ -1,15 +1,8 @@
 <?php
 
 $data = call_user_func(function () {
-
-    $config   = require __DIR__.'/../../config.php';
-    $dbConfig = $config['db'];
-
     # Conexión PDO
-    $pdo = new PDO(strtr('mysql:dbname=__dbname;host=__host', array(
-        '__dbname' => $dbConfig['database'],
-        '__host'   => $dbConfig['host'],
-    )), $dbConfig['user'], $dbConfig['password']);
+    $pdo = require __DIR__.'/../connection.php';
 
     $data = array('asistentes' => array(), 'cantidades' => array(), 'prioridades' => array(), 'conferencia' => array());
 
