@@ -1,8 +1,5 @@
 <?php
 
-# Temporal mientras se construye formulario de chequeo de inscripción
-return;
-
 function getWorkshops()
 {
     $quantities = array();
@@ -90,67 +87,10 @@ function getWorkshops()
         </header>
 
         <div class="container container-with-margins" style="top: 100px; padding-bottom: 100px;" ng-app="meetupWorkshops">
-            <section class="sixteen columns workshops clearfix" ng-controller="FormCtrl" ng-init="workshops = <?= htmlspecialchars(json_encode(getWorkshops())) ?>">
+            <section class="sixteen columns workshops clearfix">
+                <h2>Inscripción a workshops</h2>
+                <h3 style="margin: 150px auto;">Muy pronto podrás revisar en que workshops estás inscripto.</h3>
 
-                <h2>Registrate en los workshops</h2>
-
-                <p>
-                  Ingresa tus datos y seleccioná al menos un workshop al que estés interesado asistir. ¡Los cupos son limitados!
-                  <br>
-                  Debes estar registrado en la conferencia para poder participar de los workshops.
-                </p>
-
-                <form name="wsForm" ng-submit="submit()" id="workshop-form">
-                    <fieldset>
-                        <div class="sixteen columns">
-                            <div class="five columns" ng-class="{error: wsForm.nombre.$invalid && wsForm.$dirty}">
-                                <label for="workshop-name">Nombre</label>
-                                <input type="text" name="nombre" id="workshop-name" ng-model="model.nombre" required ng-minlength="4"/>
-                            </div>
-
-                            <div class="five columns" ng-class="{error: wsForm.email.$invalid && wsForm.$dirty}">
-                                <label for="workshop-email">e-mail</label>
-                                <input type="email" name="email" id="workshop-email" ng-model="model.email" placeholder="Dirección del registro." required/>
-                            </div>
-                        </div>
-                    </fieldset>
-
-
-                    <fieldset>
-                        <div class="sixteen columns">
-                            <?php
-                            foreach(array('alta','media', 'baja') as $i => $prioridad): ?>
-                                <div class="five columns" ng-class="{error: wsForm.workshop<?= $i; ?>.$invalid && wsForm.$dirty}">
-                                    <label style="text-align: left; font-size: 1.2em;" for="workshop-dropdown-<?= $i; ?>">Prioridad <?=$prioridad?></label>
-                                    <select ng-options="w.key as w.titulo for w in workshops" ng-model="model.workshops[<?= $i; ?>]" name="workshop<?= $i; ?>" id="workshop-dropdown-<?= $i; ?>" <?= 0 === $i ? 'required="required"' : '' ?> id="workshop<?= $i ?>">
-                                        <option value="">---</option>
-                                    </select>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <div class="sixteen columns">
-                            <div class="five columns" ng-class="{error: wsForm.asistencia.$invalid && wsForm.$dirty}" >
-                                <label style="text-align: left;" for="workshop-asistencia">¿Vas a la conferencia?</label>
-                                <select name="asistencia" id="workshop-asistencia" ng-model="model.asistencia" ng-options="key as name for (key, name) in {'si': 'Obvio', 'no': 'Me la pierdo'}" required>
-                                    <option value=""> --- </option>
-                                </select>
-                            </div>
-                        </div>
-                    </fieldset>
-
-                    <p class="message" ng-repeat="message in messages" ng-class="{error: message.error}" ng-bind="message.text" style="font-size: 1.5em;"></p>
-
-                    <p><strong style="font-size: 1.5em;">El registro no asegura tu participación en el workshop. Tendremos en cuenta tu criterio de preferencia para realizar la selección de los participantes. El Martes 11 te notificaremos los resultados de la selección.</strong></p>
-
-                    <button type="submit" ng-disabled="wsForm.$invalid || registrando">
-                        <span ng-if="registrando">Registrando...</span>
-                        <span ng-if="!registrando">Registrarme</span>
-                    </button>
-
-                </form>
             </section>
         </div>
         <!--        </workshops>-->

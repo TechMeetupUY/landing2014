@@ -1,5 +1,8 @@
 <?php
 
+# Prohibido registrarse!!!
+return;
+
 /**
  * Retorna un array de usuario registrados en el evento
  *
