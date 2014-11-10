@@ -448,7 +448,7 @@ do{
 	<div class="container container-with-margin" id="organiza">
 	    <section class="sixteen columns organizers clearfix">
 
-	    	<h1 id="organizadores">Organiza</h1>
+	    	<h1 id="organizadores">Organizan</h1>
 	    	
 	    	<div class="center clearfix">
 		    	
@@ -505,9 +505,40 @@ do{
 		</section>
 	</div>
 
+    <div class="container container-with-margin" id="apoya-orga">
+       <section class="sixteen columns organizers clearfix">
+
+          <h1 id="apoyan-organizacion">Apoyan en la organizaci&oacute;n</h1>
 
 
+		    	<div class="four columns organizer alpha">
+    	    		<img src="assets/images/2014/landing/helpers/ismael.jpeg" alt="Ismael Ambrosi" style="width: 50%;">
+    				<h4>Ismael Ambrosi</h4>
+    				<a href="http://twitter.com/iambrosi" target="_blank">@iambrosi</a>
+				</div>
+				
+				<div class="four columns organizer">
+		    		<img src="assets/images/2014/landing/helpers/santiagocamelo.jpg" alt="Santiago Camelo" style="width: 50%;">
+					<h4>Santiago Camelo</h4>
+					<a href="http://twitter.com/trikanna" target="_blank">@trikanna</a>
+				</div>
 
+				<div class="four columns organizer">
+		    		<img src="assets/images/2014/landing/helpers/diegomartinez.jpg" alt="Diego Mart&iacute;nez" style="width: 50%;">
+					<h4>Diego Mart&iacute;nez</h4>
+					<a href="http://twitter.com/DiMaNachoM" target="_blank">@DiMaNachom</a>
+				</div>
+				
+				<div class="four columns organizer omega">
+		    		<img src="assets/images/2014/landing/helpers/mauriciostekl.jpg" alt="Mauricio Stekl" style="width: 50%;">
+					<h4>Mauricio Stekl</h4>
+					<a href="http://twitter.com/mstekl" target="_blank">@mstekl</a>
+				</div>
+
+				<div class="clear"></div>
+				
+				<br>
+				
 	<div class="footer-wrapper">
 		<footer>
 			<div class="container">
