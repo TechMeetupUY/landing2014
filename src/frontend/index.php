@@ -337,7 +337,43 @@ do{
             ?>
         	</div>
 
-        	
+        	<h1>Participan</h1>
+
+	        <div class="center clearfix">
+            <?php 
+            // Declino toda responsabilidad de este fiasco, lo copie de abajo.
+            $i = 1;
+            foreach ($participan as $participa):
+                if($i==1){
+                    $css = 'alpha';
+                } elseif ($i == 2){
+                    $css = '';
+                } elseif ($i == 3){
+                    $css = '';
+                } else {
+                    $css = 'omega';
+                }
+                if(!is_file('./assets/images/2014/landing/participan/'.$participa['img'])){
+                    $participa['img'] = 'default.jpg';
+                }
+            ?>
+            <div class="four columns apoya <?= $css ?>">
+                <a href="<?= $participa['url'];?>?<?= isset($participa['tracking']) ? $participa['tracking'] : $default_tracking ?>" target="_blank">
+                    <img src="assets/images/2014/landing/participan/<?= $participa['img'];?>" alt="<?= $participa['alt'];?>">
+                </a>
+                
+            </div>
+            <?php
+                
+                if($i == 4){
+                    $i=0;
+                }
+                $i++;
+            endforeach;
+            ?>
+        	</div>
+
+        	<br><br>
 
         	<h1>Apoyan en la Comunicación</h1>
 

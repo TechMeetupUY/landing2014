@@ -205,7 +205,28 @@ $sponsors =  array(
     ),
 );  
 
-
+$participan = array(
+    array(
+        'alt' => 'Fabrix3d',
+        'url' => 'http://fabrix3d.com/',
+        'img' => 'fabrix3d.png',
+    ),
+    array(
+        'alt' => 'Makerlab',
+        'url' => 'http://makerlabuy.com/',
+        'img' => 'makerlab.png',
+    ),
+    array(
+        'alt' => 'Plan Ceibal',
+        'url' => 'http://www.ceibal.edu.uy/',
+        'img' => 'planceibal.png',
+    ),
+    array(
+        'alt' => 'MVDrobotics',
+        'url' => 'http://www.mvdrobotics.com/',
+        'img' => 'mvdrobotics.png',
+    ),
+);
 
 $apoyan =  array(
     array(
