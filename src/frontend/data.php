@@ -168,12 +168,6 @@ $sponsors =  array(
         'type' => 'blue'
     ),
     array(
-        'alt' => 'Sabre',
-        'url' => 'http://www.sabre.com',
-        'img' => 'sabre.png',
-        'type' => 'blue'
-    ),
-    array(
         'alt' => 'Antel',
         'url' => 'http://www.antel.com.uy',
         'img' => 'antel.png',
