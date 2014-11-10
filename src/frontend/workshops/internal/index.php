@@ -13,7 +13,7 @@ $data = call_user_func(function () {
 
     $data = array('asistentes' => array(), 'cantidades' => array(), 'prioridades' => array(), 'conferencia' => array());
 
-    $stmt = $pdo->prepare('SELECT nombre, email, GROUP_CONCAT(workshop order by prioridad) as workshops, asiste_conferencia from workshops GROUP BY email ORDER BY id');
+    $stmt = $pdo->prepare('SELECT nombre, email, GROUP_CONCAT(workshop order by prioridad) as workshops, asiste_conferencia from workshops_colisiones WHERE prioridad < 3 GROUP BY email ORDER BY id');
     $stmt->execute();
 
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
