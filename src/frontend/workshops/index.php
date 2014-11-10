@@ -89,7 +89,7 @@ function getWorkshops()
         <div class="container container-with-margins" style="top: 100px; padding-bottom: 100px;" ng-app="meetupWorkshops">
             <section class="sixteen columns workshops clearfix">
                 <h2>Inscripción a workshops</h2>
-                <h3 style="margin: 150px auto;">Muy pronto podrás revisar en que workshops estás inscripto.</h3>
+                <h3 style="margin: 150px auto;">La inscripción ha finalizado, muy pronto podrás revisar en que workshops estás inscripto.</h3>
 
             </section>
         </div>
