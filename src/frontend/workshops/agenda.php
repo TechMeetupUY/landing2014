@@ -22,7 +22,7 @@ $scheduleSettings = call_user_func(function () {
     }
 
     $result = array_filter($result, function ($workshop) {
-        return 'workshop' === $workshop['event_type'];
+        return isset($workshop['event_type']) && 'workshop' === $workshop['event_type'];
     });
 
     $workshopSettings = array();
