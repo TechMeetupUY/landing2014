@@ -289,6 +289,14 @@ $speakers =  array(
     ),
     array(
     	'flag' 		=> 'uy',
+    	'name' 		=> 'Martin S. Garcia',
+    	'title' 	=> 'Postgraduate Student of Unmanned Vehicle Systems Design en University of Southampton.',
+    	'picture'   => 'martin.jpg',
+        'twitter' 	=> 'plusmartin',
+        'linkedin' 	=> 'https://www.linkedin.com/pub/martin-garcia-wilhelm/30/380/8b1'
+    ),
+    array(
+    	'flag' 		=> 'uy',
     	'name' 		=> 'Guillermo Moncecchi',
     	'title' 	=> 'Investigador en Procesamiento de Lenguaje Natural y Machine Learning en la <a href="http://www.universidad.edu.uy/" target="_blank">UDELAR</a> y en <a href="https://twitter.com/pedeciba" target="_blank">@pedeciba</a>.',
     	'picture'   => 'guillermo.jpg',
