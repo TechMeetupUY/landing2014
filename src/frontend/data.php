@@ -295,8 +295,8 @@ $speakers =  array(
     ),
     array(
     	'flag' 		=> 'uy',
-    	'name' 		=> 'Martin S. Garcia Wilhelm',
-    	'title' 	=> '',
+    	'name' 		=> 'Martin S. Garcia',
+    	'title' 	=> 'Postgraduate Student of Unmanned Vehicle Systems Design en University of Southampton.',
     	'picture'   => 'martin.jpg',
         'twitter' 	=> 'plusmartin',
         'linkedin' 	=> 'https://www.linkedin.com/pub/martin-garcia-wilhelm/30/380/8b1'
