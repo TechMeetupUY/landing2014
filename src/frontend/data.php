@@ -365,7 +365,7 @@ $speakers =  array(
         'linkedin'  => 'http://uy.linkedin.com/in/cherta',
      ),
      array(
-        'flag'      => 'uy',
+        'flag'      => 'fr',
         'name'      => 'Max Patissier',
         'title'     => 'Cloud-stat',
         'picture'   => 'max.jpg',
