@@ -524,22 +524,28 @@ do{
 				</div>
 
 				<div class="four columns organizer">
+		    		<img src="assets/images/2014/landing/helpers/federicofernandez.jpg" alt="Federico Fern&aacute;ndez" style="width: 50%;">
+					<h4>Federico Fern&aacute;ndez</h4>
+					<a href="http://twitter.com/mstekl" target="_blank">@fede524</a>
+				</div>
+
+				<div class="four columns organizer omega">
 		    		<img src="assets/images/2014/landing/helpers/maximogomez.jpg" alt="" style="width: 50%;">
 					<h4>M&aacute;ximo G&oacute;mez</h4>
 					<a href="http://twitter.com/maximogomez" target="_blank">@maximogomez</a>
 				</div>
 
+				<div class="clear"></div>
+				
+				<br>
+				
 				<div class="four columns organizer omega">
 		    		<img src="assets/images/2014/landing/helpers/diegomartinez.jpg" alt="Diego Mart&iacute;nez" style="width: 50%;">
 					<h4>Diego Mart&iacute;nez</h4>
 					<a href="http://twitter.com/DiMaNachoM" target="_blank">@DiMaNachom</a>
 				</div>
 				
-				<div class="clear"></div>
-				
-				<br>
-				
-				<div class="four columns organizer">
+				<div class="four columns organizer alpha">
 		    		<img src="assets/images/2014/landing/helpers/mauriciostekl.jpg" alt="Mauricio Stekl" style="width: 50%;">
 					<h4>Mauricio Stekl</h4>
 					<a href="http://twitter.com/mstekl" target="_blank">@mstekl</a>
