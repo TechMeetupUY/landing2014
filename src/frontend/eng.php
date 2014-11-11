@@ -152,7 +152,7 @@
 		<div class="container container-with-margin" id="compra">
 		    <section class="sixteen columns compra clearfix">
 				
-		        <h1 style="color: black;">WE ARE SOLD OUT!</h1>
+		        <h1 style="color: black;">SOLD OUT!</h1>
 		        <h3 style="color: black;">25U$S</h3>
 		        
 				
