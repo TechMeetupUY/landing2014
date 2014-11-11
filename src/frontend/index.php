@@ -54,11 +54,6 @@
 	                    <span class="header-venue">Torre de las Telecomunicaciones de ANTEL</span>
 	                </div>
 	                
-	                <div class="header-button five columns omega" >
-	                    <a href="http://vimeo.com/97064014" target="_blank">
-	                    	<img src="/assets/images/2014/landing/compra_ahora.png" alt="">
-	                    </a>
-	                </div>
 	            </div>
 	        </div>
 	    </div>
@@ -162,25 +157,8 @@
 		<div class="container container-with-margin" id="compra">
 		    <section class="sixteen columns compra clearfix">
 
-		        <h1 style="color: black;">Comprá tu Entrada y reservá tu lugar</h1>
+		        <h1 style="color: black;">ENTRADAS AGOTADAS!!!</h1>
 		        <h1 style="color: black;">U$S 25.00</h1>
-		        
-				<div class="eight columns alpha buy-with">
-					<a href="http://www.eventbrite.com/e/registro-techmeetup-12222121695?aff=eorg" target="_blank">
-						<img src="/assets/images/2014/landing/btn-paypal.png" alt="">
-					</a>
-				</div>
-				<div class="eight columns omega buy-with">
-					<a href="http://bit.ly/1sQatvY" target="_blank">
-						<img src="/assets/images/2014/landing/btn-redpagos.png" alt="">
-					</a>
-				</div>
-
-				<div class="clearfix"></div>
-
-				<div style="font-size:16px; padding: 20px 0; margin:30px 0 0 0; width:100%; text-align:center;" >
-					<a style="color:black; text-decoration:none;" target="_blank" href="http://bit.ly/techmeetup14-beca"><h4 style="color:black;">Si sos estudiante y querés solicitar una beca hace click <strong>aquí</strong></h4></a> 
-				</div>
 
 		    </section>
 		</div>
