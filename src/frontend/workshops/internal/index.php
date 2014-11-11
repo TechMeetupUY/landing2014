@@ -1,17 +1,102 @@
 <?php
 
+function buscarColisiones(PDO $pdo)
+{
+    $agenda = array(
+        '09:00' =>
+            array(
+                0 => 'openstack',
+                1 => 'dev_toolbox',
+            ),
+        '11:00' =>
+            array(
+                0 => 'scala',
+                1 => 'golang',
+            ),
+        '14:00' =>
+            array(
+                0 => 'ios',
+                1 => 'mysql',
+                2 => 'mobile_testing',
+            ),
+        '16:00' =>
+            array(
+                0 => 'agile',
+                1 => 'arduino',
+                2 => 'nodejs',
+            ),
+    );
+
+    $registros  = array();
+    $ids        = array();
+    $colisiones = array();
+    $stmt       = $pdo->prepare('SELECT id, email, workshop, prioridad FROM workshops_colisiones ORDER BY id ASC');
+
+    $stmt->execute();
+
+    foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
+        $registros[$row['email']][$row['workshop']] = $row['prioridad'];
+
+        $ids[$row['email']] = $row['id'];
+    }
+
+    unset($stmt);
+
+    foreach ($registros as $email => $workshops1) {
+        foreach ($agenda as $hora => $workshops2) {
+            $intersection = array_intersect(array_keys($workshops1), $workshops2);
+            if (2 > count($intersection)) {
+                continue;
+            }
+
+            foreach ($intersection as $w) {
+                $colisiones[$w][$email] = $ids[$email];
+            }
+        }
+    }
+
+    return $colisiones;
+}
+
 $data = call_user_func(function () {
-
-    $config   = require __DIR__.'/../../config.php';
-    $dbConfig = $config['db'];
-
     # Conexión PDO
-    $pdo = new PDO(strtr('mysql:dbname=__dbname;host=__host', array(
-        '__dbname' => $dbConfig['database'],
-        '__host'   => $dbConfig['host'],
-    )), $dbConfig['user'], $dbConfig['password']);
+    $pdo = require __DIR__.'/../connection.php';
 
-    $data = array('asistentes' => array(), 'cantidades' => array(), 'prioridades' => array(), 'conferencia' => array());
+    $data = array(
+        'asistentes'  => array(),
+        'cantidades'  => array(),
+        'prioridades' => array(),
+        'conferencia' => array(),
+        'aprobados'   => array()
+    );
+
+    $colisiones = buscarColisiones($pdo);
+
+    $stmt = $pdo->prepare('SELECT nombre, email, GROUP_CONCAT(workshop order by prioridad) as workshops, asiste_conferencia from workshops_colisiones WHERE prioridad < 3 AND aprobado = 1 GROUP BY email ORDER BY id');
+    $stmt->execute();
+
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($rows as $row) {
+        $row['workshops']               = explode(',', $row['workshops']);
+        $data['asistentes_aprobados'][] = $row;
+    }
+
+    $stmt = $pdo->prepare('SELECT nombre, email, workshop, asiste_conferencia, aprobado from workshops_colisiones ORDER BY email, prioridad');
+    $stmt->execute();
+
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($rows as $row) {
+        if (!isset($data['aprobados'][$row['email']])) {
+            $data['aprobados'][$row['email']] = array(
+                'nombre'             => $row['nombre'],
+                'asiste_conferencia' => $row['asiste_conferencia']
+            );
+        }
+
+        $row['colision'] = isset($colisiones[$row['workshop']][$row['email']]) && $colisiones[$row['workshop']][$row['email']];
+
+        $data['aprobados'][$row['email']]['workshops'][] = $row;
+    }
 
     $stmt = $pdo->prepare('SELECT nombre, email, GROUP_CONCAT(workshop order by prioridad) as workshops, asiste_conferencia from workshops_colisiones WHERE prioridad < 3 GROUP BY email ORDER BY id');
     $stmt->execute();
@@ -22,7 +107,7 @@ $data = call_user_func(function () {
         $data['asistentes'][] = $row;
     }
 
-    $stmt = $pdo->prepare('SELECT workshop, COUNT(1) AS inscriptos FROM workshops GROUP BY workshop ORDER BY inscriptos DESC');
+    $stmt = $pdo->prepare('SELECT workshop, COUNT(1) AS inscriptos FROM workshops_colisiones WHERE prioridad < 3 GROUP BY workshop ORDER BY inscriptos DESC');
     $stmt->execute();
 
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -30,7 +115,7 @@ $data = call_user_func(function () {
         $data['cantidades'][] = $row;
     }
 
-    $stmt = $pdo->prepare('SELECT workshop, IF(0 = prioridad, "alta", IF(1 = prioridad, "media", "baja")) AS nombre_prioridad, COUNT(1) AS inscriptos FROM workshops GROUP BY prioridad, workshop ORDER BY prioridad, inscriptos DESC');
+    $stmt = $pdo->prepare('SELECT workshop, IF(0 = prioridad, "alta", IF(1 = prioridad, "media", "baja")) AS nombre_prioridad, COUNT(1) AS inscriptos FROM workshops_colisiones WHERE prioridad < 3 GROUP BY prioridad, workshop ORDER BY prioridad, inscriptos DESC');
 
     $stmt->execute();
 
@@ -39,7 +124,7 @@ $data = call_user_func(function () {
         $data['prioridades'][$row['nombre_prioridad']][] = $row;
     }
 
-    $stmt = $pdo->prepare('SELECT asiste_conferencia, COUNT(DISTINCT email) AS cantidad FROM workshops GROUP BY asiste_conferencia ORDER BY cantidad DESC');
+    $stmt = $pdo->prepare('SELECT asiste_conferencia, COUNT(DISTINCT email) AS cantidad FROM workshops_colisiones WHERE prioridad < 3 GROUP BY asiste_conferencia ORDER BY cantidad DESC');
 
     $stmt->execute();
 
@@ -99,7 +184,7 @@ $data = call_user_func(function () {
         <div class="white-wrapper">
             <div class="container container-with-margins" style="top: 100px; padding-bottom: 100px;">
                 <section class="sixteen columns clearfix workshops">
-                    <h2>Asistentes</h2>
+                    <h2>Asistentes aprobados</h2>
 
                     <table class="lista-interna">
                         <thead>
@@ -112,17 +197,19 @@ $data = call_user_func(function () {
                         </thead>
                         <tfoot>
                             <tr>
-                                <td colspan="6">Total: <?=count($data['asistentes'])?></td>
+                                <td colspan="6">Total: <?= count($data['aprobados']) ?></td>
                             </tr>
                         </tfoot>
                         <tbody>
-                            <?php foreach ($data['asistentes'] as $asistente): ?>
+                            <?php foreach ($data['aprobados'] as $email => $asistente): ?>
                                 <tr>
                                     <td><?= $asistente['nombre'] ?></td>
-                                    <td><?= $asistente['email'] ?></td>
+                                    <td><?= $email ?></td>
                                     <td class="center"><?= $asistente['asiste_conferencia'] ?></td>
                                     <?php foreach ($asistente['workshops'] as $workshop): ?>
-                                        <td class="workshop"><?= $workshop ?></td>
+                                        <td class="workshop <?= $workshop['colision'] ? 'colision' : '' ?> <?= $workshop['aprobado'] ? 'aprobado' : '' ?>">
+                                            <?= $workshop['workshop'] ?>
+                                        </td>
                                     <?php endforeach; ?>
                                 </tr>
                             <?php endforeach; ?>

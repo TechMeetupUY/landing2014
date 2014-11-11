@@ -188,13 +188,8 @@ call_user_func(function (array $request) {
 
         # Pronto para guardar el registro en la base de datos
 
-        $dbConfig = $config['db'];
-
         # Conexión PDO
-        $pdo = new PDO(strtr('mysql:dbname=__dbname;host=__host', array(
-            '__dbname' => $dbConfig['database'],
-            '__host'   => $dbConfig['host'],
-        )), $dbConfig['user'], $dbConfig['password']);
+        $pdo = require __DIR__.'/connection.php';
 
         verifyExistence($pdo, $email);
         registerWorkshops($pdo, $nombre, $email, $workshops, $asistencia);
