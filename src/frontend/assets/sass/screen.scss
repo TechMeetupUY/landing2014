@@ -89,7 +89,18 @@ table.lista-interna {
           font-size: 0.9em;
           background-color: #EEE;
           border: solid 1px #DDD;
+          color: #888;
           @include border-radius(4px, 4px);
+
+          &.colision {
+            background-color: beige;
+            color: #000000;
+          }
+
+          &.aprobado {
+            font-weight: bold;
+            color: #000000;
+          }
         }
 
         &.center {
