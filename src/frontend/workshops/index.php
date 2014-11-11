@@ -116,7 +116,7 @@ function getWorkshops()
                             else:
                                 ?>
                                 <p>
-                                <strong>Has sido seleccionado para los siguientes workshops:</strong>
+                                <strong>Estás registrado en los siguientes workshops:</strong>
                                 <br/>
                                 <?php
                                 $workshops = require __DIR__.'/../workshops.php';
