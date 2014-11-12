@@ -78,7 +78,7 @@ En esta charla introduciremos y exploraremos las herramientas que marcan una rea
 <li>Deployment con Capistrano, Capifony y similares</li></ul>
 
 Todas estas herramientas, además de consejos y trucos aprendidos a lo largo de años de experiencia harán de esta charla muy interesante para desarrolladores de diversos niveles.',
-		'trainers' => '<a href="https://twitter.com/pgodel">Pablo Godel</a> by <a href="http://phpmvd.uy">PHPmvd meetup</a>',
+		'trainers' => '<a href="https://twitter.com/pgodel">Pablo Godel</a> | <a href="https://twitter.com/iambrosi">Ismael Ambrosi</a> by <a href="http://phpmvd.uy">PHPmvd meetup</a>',
 		'hora' => '09:00',
 		'reqs' => 'Vagrant y Virtualbox funcionando',
         'key' => 'dev_toolbox',
