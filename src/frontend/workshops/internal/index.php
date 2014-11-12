@@ -133,6 +133,15 @@ $data = call_user_func(function () {
         $data['conferencia'][] = $row;
     }
 
+    $stmt = $pdo->prepare('SELECT workshop, COUNT(DISTINCT email) AS cantidad FROM workshops_colisiones WHERE aprobado = 1 GROUP BY workshop ORDER BY cantidad DESC');
+
+    $stmt->execute();
+
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($rows as $row) {
+        $data['aprobados_cantidad'][] = $row;
+    }
+
     return $data;
 });
 
@@ -220,6 +229,28 @@ $data = call_user_func(function () {
             </div>
 
             <div class="container container-with-margins" style="top: 100px; padding-bottom: 100px;">
+                <section class="eight columns clearfix workshops">
+                    <h2>Cantidad aprobados por workshop</h2>
+
+                    <table class="lista-interna">
+                        <thead>
+                            <tr>
+                                <th>Workshop</th>
+                                <th>Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($data['aprobados_cantidad'] as $cantidad): ?>
+                                <tr>
+                                    <td><?= $cantidad['workshop'] ?></td>
+                                    <td class="center"><?= $cantidad['cantidad'] ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+
+                </section>
+
                 <section class="eight columns clearfix workshops">
                     <h2>Cantidad inscriptos por workshop</h2>
 
