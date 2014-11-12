@@ -67,7 +67,8 @@ $data = call_user_func(function () {
         'cantidades'  => array(),
         'prioridades' => array(),
         'conferencia' => array(),
-        'aprobados'   => array()
+        'registrados' => array(),
+        'aprobados'   => array(),
     );
 
     $colisiones = buscarColisiones($pdo);
@@ -86,8 +87,8 @@ $data = call_user_func(function () {
 
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach ($rows as $row) {
-        if (!isset($data['aprobados'][$row['email']])) {
-            $data['aprobados'][$row['email']] = array(
+        if (!isset($data['registrados'][$row['email']])) {
+            $data['registrados'][$row['email']] = array(
                 'nombre'             => $row['nombre'],
                 'asiste_conferencia' => $row['asiste_conferencia']
             );
@@ -95,7 +96,7 @@ $data = call_user_func(function () {
 
         $row['colision'] = isset($colisiones[$row['workshop']][$row['email']]) && $colisiones[$row['workshop']][$row['email']];
 
-        $data['aprobados'][$row['email']]['workshops'][] = $row;
+        $data['registrados'][$row['email']]['workshops'][] = $row;
     }
 
     $stmt = $pdo->prepare('SELECT nombre, email, GROUP_CONCAT(workshop order by prioridad) as workshops, asiste_conferencia from workshops_colisiones WHERE prioridad < 3 GROUP BY email ORDER BY id');
@@ -132,6 +133,28 @@ $data = call_user_func(function () {
     foreach ($rows as $row) {
         $data['conferencia'][] = $row;
     }
+
+    $stmt = $pdo->prepare('SELECT workshop, COUNT(DISTINCT email) AS cantidad FROM workshops_colisiones WHERE aprobado = 1 GROUP BY workshop ORDER BY cantidad DESC');
+
+    $stmt->execute();
+
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($rows as $row) {
+        $data['aprobados_cantidad'][] = $row;
+    }
+
+    $stmt = $pdo->prepare('SELECT nombre, email, workshop FROM workshops_colisiones WHERE aprobado = 1 ORDER BY workshop, nombre, email');
+
+    $stmt->execute();
+
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($rows as $row) {
+        $data['aprobados'][$row['workshop']][] = array('nombre' => $row['nombre'], 'email' => $row['email']);
+    }
+
+    uasort($data['aprobados'], function ($a, $b) {
+        return count($a) - count($b);
+    });
 
     return $data;
 });
@@ -197,11 +220,11 @@ $data = call_user_func(function () {
                         </thead>
                         <tfoot>
                             <tr>
-                                <td colspan="6">Total: <?= count($data['aprobados']) ?></td>
+                                <td colspan="6">Total: <?= count($data['registrados']) ?></td>
                             </tr>
                         </tfoot>
                         <tbody>
-                            <?php foreach ($data['aprobados'] as $email => $asistente): ?>
+                            <?php foreach ($data['registrados'] as $email => $asistente): ?>
                                 <tr>
                                     <td><?= $asistente['nombre'] ?></td>
                                     <td><?= $email ?></td>
@@ -220,6 +243,28 @@ $data = call_user_func(function () {
             </div>
 
             <div class="container container-with-margins" style="top: 100px; padding-bottom: 100px;">
+                <section class="eight columns clearfix workshops">
+                    <h2>Cantidad aprobados por workshop</h2>
+
+                    <table class="lista-interna">
+                        <thead>
+                            <tr>
+                                <th>Workshop</th>
+                                <th>Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($data['aprobados_cantidad'] as $cantidad): ?>
+                                <tr>
+                                    <td><?= $cantidad['workshop'] ?></td>
+                                    <td class="center"><?= $cantidad['cantidad'] ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+
+                </section>
+
                 <section class="eight columns clearfix workshops">
                     <h2>Cantidad inscriptos por workshop</h2>
 
@@ -264,6 +309,35 @@ $data = call_user_func(function () {
 
                 </section>
 
+            </div>
+
+            <div class="container container-with-margins" style="top: 100px; padding-bottom: 100px; overflow: auto;">
+                <h2 style="text-align: center;">Aprobados a workshops</h2>
+
+                <?php foreach ($data['aprobados'] as $workshop => $aprobados): ?>
+                    <section class="eight columns workshops">
+                        <h3><?= $workshop ?></h3>
+                        <table class="lista-interna">
+                            <thead>
+                                <!--<tr>
+                                    <th colspan="2">Prioridad <? /*= $prioridad */ ?></th>
+                                </tr>-->
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($aprobados as $aprobado): ?>
+                                    <tr>
+                                        <td><?= $aprobado['nombre'] ?></td>
+                                        <td><?= $aprobado['email'] ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </section>
+                <?php endforeach; ?>
             </div>
 
             <div class="container container-with-margins" style="top: 100px; padding-bottom: 100px;">
