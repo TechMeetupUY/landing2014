@@ -67,7 +67,7 @@ $data = call_user_func(function () {
         'cantidades'  => array(),
         'prioridades' => array(),
         'conferencia' => array(),
-        'aprobados'   => array()
+        'registrados'   => array()
     );
 
     $colisiones = buscarColisiones($pdo);
@@ -86,8 +86,8 @@ $data = call_user_func(function () {
 
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach ($rows as $row) {
-        if (!isset($data['aprobados'][$row['email']])) {
-            $data['aprobados'][$row['email']] = array(
+        if (!isset($data['registrados'][$row['email']])) {
+            $data['registrados'][$row['email']] = array(
                 'nombre'             => $row['nombre'],
                 'asiste_conferencia' => $row['asiste_conferencia']
             );
@@ -95,7 +95,7 @@ $data = call_user_func(function () {
 
         $row['colision'] = isset($colisiones[$row['workshop']][$row['email']]) && $colisiones[$row['workshop']][$row['email']];
 
-        $data['aprobados'][$row['email']]['workshops'][] = $row;
+        $data['registrados'][$row['email']]['workshops'][] = $row;
     }
 
     $stmt = $pdo->prepare('SELECT nombre, email, GROUP_CONCAT(workshop order by prioridad) as workshops, asiste_conferencia from workshops_colisiones WHERE prioridad < 3 GROUP BY email ORDER BY id');
@@ -206,11 +206,11 @@ $data = call_user_func(function () {
                         </thead>
                         <tfoot>
                             <tr>
-                                <td colspan="6">Total: <?= count($data['aprobados']) ?></td>
+                                <td colspan="6">Total: <?= count($data['registrados']) ?></td>
                             </tr>
                         </tfoot>
                         <tbody>
-                            <?php foreach ($data['aprobados'] as $email => $asistente): ?>
+                            <?php foreach ($data['registrados'] as $email => $asistente): ?>
                                 <tr>
                                     <td><?= $asistente['nombre'] ?></td>
                                     <td><?= $email ?></td>
