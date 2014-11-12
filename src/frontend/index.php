@@ -156,9 +156,8 @@
 	<div class="yellow-wrapper">
 		<div class="container container-with-margin" id="compra">
 		    <section class="sixteen columns compra clearfix">
-
 		        <h1 style="color: black;">ENTRADAS AGOTADAS!!!</h1>
-
+            <h2> Nos vemos en la Conferencia!</h2>
 		    </section>
 		</div>
 	</div>
