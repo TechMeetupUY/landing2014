@@ -67,7 +67,8 @@ $data = call_user_func(function () {
         'cantidades'  => array(),
         'prioridades' => array(),
         'conferencia' => array(),
-        'registrados'   => array()
+        'registrados' => array(),
+        'aprobados'   => array(),
     );
 
     $colisiones = buscarColisiones($pdo);
@@ -141,6 +142,19 @@ $data = call_user_func(function () {
     foreach ($rows as $row) {
         $data['aprobados_cantidad'][] = $row;
     }
+
+    $stmt = $pdo->prepare('SELECT nombre, email, workshop FROM workshops_colisiones WHERE aprobado = 1 ORDER BY workshop, nombre, email');
+
+    $stmt->execute();
+
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($rows as $row) {
+        $data['aprobados'][$row['workshop']][] = array('nombre' => $row['nombre'], 'email' => $row['email']);
+    }
+
+    uasort($data['aprobados'], function ($a, $b) {
+        return count($a) - count($b);
+    });
 
     return $data;
 });
@@ -295,6 +309,35 @@ $data = call_user_func(function () {
 
                 </section>
 
+            </div>
+
+            <div class="container container-with-margins" style="top: 100px; padding-bottom: 100px; overflow: auto;">
+                <h2 style="text-align: center;">Aprobados a workshops</h2>
+
+                <?php foreach ($data['aprobados'] as $workshop => $aprobados): ?>
+                    <section class="eight columns workshops">
+                        <h3><?= $workshop ?></h3>
+                        <table class="lista-interna">
+                            <thead>
+                                <!--<tr>
+                                    <th colspan="2">Prioridad <? /*= $prioridad */ ?></th>
+                                </tr>-->
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($aprobados as $aprobado): ?>
+                                    <tr>
+                                        <td><?= $aprobado['nombre'] ?></td>
+                                        <td><?= $aprobado['email'] ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </section>
+                <?php endforeach; ?>
             </div>
 
             <div class="container container-with-margins" style="top: 100px; padding-bottom: 100px;">
