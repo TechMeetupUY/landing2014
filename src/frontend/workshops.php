@@ -107,11 +107,8 @@ En este workshop aprenderás a usar las herramientas básicas que el lenguaje pr
 
 Si bién solo manejaremos la standard library, las herramientas de proceso a gran escala que están basadas en el lenguaje reflejan la orientación a la programación funcional mediante librerías de combinadores muy similares a las que usaremos.',
     'trainers' => '<a href="https://twitter.com/fedesilva">Federico Silva</a> | <a href="https://twitter.com/gerferra">Germ&aacuten Ferrari</a> | <a href="https://twitter.com/gpolito">Guillermo Polito</a> | <a href="https://twitter.com/tomzalt">Tom&aacute;s Lázaro</a> by <a href="http://www.meetup.com/Scala-Meetup-MVD/">Scala Meetup</a>',
-		'reqs' => '<ul><li>Java >= 1.6 (jdk)</li>
-<li>Editor de texto y IDE </li>
-<li>sbt</li>
-</ul>
-Instrucciones se publicarán en la web una semana antes.
+    'reqs' => '
+    <ul><li><a href="https://github.com/scala-meetup-mvd/techmeetup2014-workshopintro/blob/master/Setup.md">Setup para el Scala Workshop</a></li></ul>
 
 Se asumen conocimientos generales de programación en un lenguaje como Java o Ruby.',
 		'hora' => '11:00',
