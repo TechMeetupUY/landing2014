@@ -158,7 +158,6 @@
 		    <section class="sixteen columns compra clearfix">
 
 		        <h1 style="color: black;">ENTRADAS AGOTADAS!!!</h1>
-		        <h1 style="color: black;">U$S 25.00</h1>
 
 		    </section>
 		</div>
