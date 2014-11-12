@@ -18,7 +18,7 @@ return array(
 ¿Cuales son los nuevos desafíos? ¿Qué necesitamos aprender en estas plataformas?
 ¿Qué herramientas hay disponibles? ¿Qué pasa con la usabilidad, cómo la probamos?
 Estas y otras preguntas son las que estaremos en este workshop mostrando cómo las abordamos en Abstracta, compartiendo nuestras experiencias e investigación al respecto.',
-		'trainers' => 'Fabian Baptista | Matías Reina',
+		'trainers' => '<a href="https://twitter.com/fbaptista">Fabian Baptista</a> | <a href="https://twitter.com/mellimatias">Matías Reina</a>',
 		'hora' => '14:00',
 		'reqs' => 'Un smart device cualquiera.',
         'key' => 'mobile_testing',
@@ -32,7 +32,7 @@ Este es el momento!
 No es necesario que sepas de Objective-C ni que conozcas cómo funciona el Xcode. 
 En el workshop iremos paso a paso, no sólo para aprender, sino también para 
 terminar creando tu primer app.',
-		'trainers' => 'Nicolás Alliaume, Diego Mazzone by <a href="http://www.meetup.com/applemvd/">AppleMVD meetup</a>',
+		'trainers' => '<a href="https://twitter.com/nicolasalliaume">Nicolás Alliaume</a> | <a href="https://twitter.com/diego_mazzone">Diego Mazzone</a> by <a href="http://www.meetup.com/applemvd/">AppleMVD meetup</a>',
 		'hora' => '14:00',
 		'reqs' => 'Es necesario traer una Mac, o juntarse con un compañero que tenga una, con el Xcode Instalado (versión 5.1.1 o superior). No es necesario tener conocimientos de Objective-C o C, pero sí de programación orientada a objetos.',
         'key' => 'ios',
@@ -59,7 +59,7 @@ terminar creando tu primer app.',
 <li>Línea de comandos con Nodejs, E/S sincrónica, asincrónica, EventLoop. </li>
 <li>Nodejs API y uso de módulos. Uso de Http cliente/servidor.</li>
 <li>Crear un servidor con API en JSON.</li></ul>',
-		'trainers' => 'Martin Prunell, Pablo Ricco, Luis Cal y Pablo de Juan by <a href="http://www.meetup.com/mvd-js/">MVDjs meetup</a></li>',
+		'trainers' => '<a href="https://twitter.com/MartinPrunell">Martin Prunell</a> | <a href="https://twitter.com/pricco">Pablo Ricco</a> | <a href="https://twitter.com/_luisalbertocal">Luis Cal</a> | <a href="https://twitter.com/pdejuan">Pablo Dejuan</a> | <a href="https://twitter.com/cphoton">H&eacute;ctor Quartino</a> | <a href="https://twitter.com/iamcherta">Gabriel Chertok</a> | <a href="https://twitter.com/espinosacurbelo">Rodrigo Espinosa</a> by <a href="http://www.meetup.com/mvd-js/">MVDjs meetup</a></li>',
 		'hora' => '16:00',
 		'reqs' => '<ul><li>Nociones elementales de programación y de JavaScript. El taller será de enfoque netamente práctico orientado a principiantes en NodeJS.
 		<li>Se utilizará un programa de NodeJS para el taller y se requiere equipo propio, Linux, Mac o Windows. El material adicional se entregará en el taller.</li></ul>',
@@ -80,7 +80,7 @@ En esta charla introduciremos y exploraremos las herramientas que marcan una rea
 Todas estas herramientas, además de consejos y trucos aprendidos a lo largo de años de experiencia harán de esta charla muy interesante para desarrolladores de diversos niveles.',
 		'trainers' => '<a href="https://twitter.com/pgodel">Pablo Godel</a> by <a href="http://phpmvd.uy">PHPmvd meetup</a>',
 		'hora' => '09:00',
-		'reqs' => '',
+		'reqs' => 'Vagrant y Virtualbox funcionando',
         'key' => 'dev_toolbox',
 		'max' => 40
 	),
@@ -137,7 +137,9 @@ Se asumen conocimientos generales de programación en un lenguaje como Java o Ru
 		'descripcion' => 'Introducción a Shard Query, un motor open source de ejecución de consultas masivamente paralelas para MySQL, con énfasis en la solución de algunos problemas que típicamente se manejan con implementaciones de Map Reduce.',
 		'trainers' => 'Agustín Gallego, <a href="http://fernandoipar.com/">Fernando Ipar</a> by <a href="http://www.meetup.com/The-Montevideo-MySQL-Meetup-Group/">Mysql Meetup</a>',
 		'hora' => '14:00',
-		'reqs' => '',
+    'reqs' => '<ul><li>Vagrant y Virtualbox funcionando</li>
+              <li>GIT instalado</li>
+      </ul>',
         'key' => 'mysql',
 		'max' => 40
 	),
