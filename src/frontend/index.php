@@ -533,6 +533,12 @@ do{
 					<a href="http://twitter.com/maximogomez" target="_blank">@maximogomez</a>
 				</div>
 
+				<div class="four columns organizer alpha">
+		    		<img src="assets/images/2014/landing/helpers/bym.png" alt="Mauricio Stekl" style="width: 50%;">
+					<h4>ByMSoluciones</h4>
+					<a href="http://twitter.com/ByMSoluciones" target="_blank">@ByMSoluciones</a>
+				</div>
+
 			</div>
 
 		</section>
