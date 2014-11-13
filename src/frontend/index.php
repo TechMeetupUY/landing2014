@@ -527,6 +527,12 @@ do{
 					<a href="http://twitter.com/mstekl" target="_blank">@mstekl</a>
 				</div>
 
+				<div class="four columns organizer omega">
+		    		<img src="assets/images/2014/landing/helpers/maximogomez.jpg" alt="" style="width: 50%;">
+					<h4>M&aacute;ximo G&oacute;mez</h4>
+					<a href="http://twitter.com/maximogomez" target="_blank">@maximogomez</a>
+				</div>
+
 			</div>
 
 		</section>
