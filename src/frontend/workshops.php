@@ -44,7 +44,7 @@ terminar creando tu primer app.',
 		'descripcion' => 'Taller de introducción al Arduino donde los participantes aprenderán a trabajar con la placa Arduino, conocer el IDE y ejecutar ejemplos básicos usando diferente hardware. 
 
 		Además los participantes (con la ayuda de los docentes) deberán programar un juego usando la placa Arduino. Realizaremos una competencia final usando el juego desarrollado por los participantes.',
-		'trainers' => 'by <a href="http://www.mvdrobotics.com/">MVDRobotics</a>',
+'trainers' => 'Pablo Gindel | Kenji Nakasone | Joaquin Lorieto | Federico Andrade by <a href="http://www.mvdrobotics.com/">MVDRobotics</a>',
 		'hora' => '16:00',
 		'reqs' => 'Se requiere equipo propio, Linux, Mac o Windows con el IDE de Arduino instalado. El material adicional se entregará en el taller.',
         'key' => 'arduino',
