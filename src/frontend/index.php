@@ -467,7 +467,7 @@ do{
 				<div class="four columns organizer">
 		    		<img src="assets/images/2014/landing/organizers/fabian.jpg" alt="Martín Loy">
 					<h4>Fabián Fernandez</h4>
-					<a href="http://twitter.com/fabifernandez23" target="_blank">@fabifernandez23</a>
+					<a href="http://twitter.com/kzfabi" target="_blank">@kzfabi</a>
 				</div>
 
 				<div class="four columns organizer omega">
